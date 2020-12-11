@@ -84,10 +84,6 @@ public class ProductController {
         return "product_detail";
     }
 
-    @RequestMapping(value = "/test")
-    public String painting_detail() {
-        return "painting_detail";
-    }
 
     @RequestMapping(value = "/searchPre", method = RequestMethod.POST)
     @ResponseBody
