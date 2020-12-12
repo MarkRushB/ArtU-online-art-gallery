@@ -66,10 +66,23 @@
 
             <div class="navbar-form navbar-right">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="数据库" id="searchKeyWord"/>
+                    <input type="text" class="form-control" placeholder="Search Art Now" id="searchKeyWord"/>
                 </div>
-                <button class="btn btn-default" onclick="searchProduct();">查找商品</button>
+                <button class="btn btn-default" onclick="searchProduct();">Search</button>
             </div>
+<%--            <div class="search">--%>
+<%--                <input type="text"--%>
+<%--                       style="width: 70%;--%>
+<%--               height: 60px;--%>
+<%--               border-color: white;--%>
+<%--               border-width: thin;--%>
+<%--               background-color: transparent;--%>
+<%--               border-width: medium;--%>
+<%--               color: white;--%>
+<%--               font-weight: bold;"--%>
+<%--                       placeholder="Search Art Now" name="" id="searchKeyWord" value="" />--%>
+<%--                <button style="width: 20%; height: 60px; font-weight: bold; font-family: Arial" onclick="searchProduct()">search</button>--%>
+<%--            </div>--%>
         </div>
     </div>
 </nav>

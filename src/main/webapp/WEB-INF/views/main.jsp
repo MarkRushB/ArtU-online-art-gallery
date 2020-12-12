@@ -79,16 +79,24 @@
 <div class="sidebar-navigation hidde-sm hidden-xs">
     <div class="logo">
         <a href="#">Art<em>U</em></a>
-        <a><input style="width: 100%;
-        background-color: transparent;
-        margin-top: 50px;
-        height: 60px; border-color: white; border-width: thin;" type="text" name="name"</a>
-
-        <div class="search">
-            <input type="text" placeholder="请输入..." name="" id="" value="" />
-            <button><i>搜索</i></button>
-        </div>
+<%--        <a><input style="width: 100%;--%>
+<%--        background-color: transparent;--%>
+<%--        margin-top: 50px;--%>
+<%--        height: 60px; border-color: white; border-width: thin;" type="text" name="name"</a>--%>
     </div>
+<%--    <div class="search" style="margin-top: 70%; margin-left: 10%; margin-right: 3%">--%>
+<%--        <input type="text"--%>
+<%--               style="width: 70%;--%>
+<%--               height: 60px;--%>
+<%--               border-color: white;--%>
+<%--               border-width: thin;--%>
+<%--               background-color: transparent;--%>
+<%--               border-width: medium;--%>
+<%--               color: white;--%>
+<%--               font-weight: bold;"--%>
+<%--               placeholder="Search Art Now" name="" id="searchKeyWord" value="" />--%>
+<%--        <button style="width: 20%; height: 60px; font-weight: bold; font-family: Arial" onclick="searchProductI()">search</button>--%>
+<%--    </div>--%>
     <nav>
         <ul>
             <li>
@@ -142,13 +150,6 @@
             </li>
         </ul>
     </nav>
-    <ul class="social-icons">
-        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-        <li><a href="#"><i class="fa fa-behance"></i></a></li>
-    </ul>
 </div>
 
 <div class="slider">
@@ -479,6 +480,7 @@
         lastScrollTop = st;
     }
 </script>
+
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 
