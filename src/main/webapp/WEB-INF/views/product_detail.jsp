@@ -186,6 +186,12 @@
                     </div>
                 </section>
 
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" onclick="subCounts()">-</button>
+                    <button id="productCounts" type="button" class="btn btn-default">1</button>
+                    <button type="button" class="btn btn-default" onclick="addCounts(1)">+</button>
+                </div>
+
                 <div class="row">
                     <div class="col-sm-1 col-md-1 col-lg-1"></div>
                     <fieldset class="contact-form">

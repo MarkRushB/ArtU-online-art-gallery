@@ -79,6 +79,15 @@
 <div class="sidebar-navigation hidde-sm hidden-xs">
     <div class="logo">
         <a href="#">Art<em>U</em></a>
+        <a><input style="width: 100%;
+        background-color: transparent;
+        margin-top: 50px;
+        height: 60px; border-color: white; border-width: thin;" type="text" name="name"</a>
+
+        <div class="search">
+            <input type="text" placeholder="请输入..." name="" id="" value="" />
+            <button><i>搜索</i></button>
+        </div>
     </div>
     <nav>
         <ul>
@@ -360,16 +369,6 @@
         for(var i=0;i<allProduct.length;i++){
             var html = "";
             var imgURL = "${cp}/img/"+allProduct[i].id+".jpg";
-            // html += '<div class="col-sm-4 col-md-4" >'+
-            //     '<div class="boxes pointer" onclick="productDetail('+allProduct[i].id+')">'+
-            //     '<div class="big bigimg">'+
-            //     '<img src="'+imgURL+'">'+
-            //     '</div>'+
-            //     '<p class="product-name">'+allProduct[i].name+'</p>'+
-            //     '<p class="product-price">¥'+allProduct[i].price+'</p>'+
-            //     '</div>'+
-            //     '</div>'
-            // ;
             html += '<div class="col-md-6" onclick="productDetail('+allProduct[i].id+')">'+
                 '<a data-lightbox="image"><img src="'+imgURL+'"></a>'+
                 '</div>'
