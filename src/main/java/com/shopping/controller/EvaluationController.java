@@ -31,7 +31,7 @@ public class EvaluationController {
     public Map<String,Object> addShoppingEvaluation(int userId, int productId, String content){
         System.out.println("我添加了"+userId+" "+productId);
         String result = null;
-        if(shoppingRecordService.getUserProductRecord(userId,productId)){
+//        if(shoppingRecordService.getUserProductRecord(userId,productId)){
             Evaluation evaluation = new Evaluation();
             evaluation.setUserId(userId);
             evaluation.setProductId(productId);
@@ -41,10 +41,10 @@ public class EvaluationController {
             evaluation.setContent(content);
             evaluationService.addEvaluation(evaluation);
             result = "success";
-        }
-        else{
-            result="noneRecord";
-        }
+//        }
+//        else{
+//            result="noneRecord";
+//        }
 
         Map<String,Object> resultMap = new HashMap<String,Object>();
         resultMap.put("result",result);

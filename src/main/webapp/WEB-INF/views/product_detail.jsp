@@ -449,7 +449,7 @@
           }
           evaluationTable.innerHTML += html;
 
-          if("${currentUser}"!=="" && getUserProductRecord() === "true"){
+          if("${currentUser}"!==""){
               var inputArea = document.getElementById("inputArea");
               html= '<div class="col-sm-12 col-md-12 col-lg-12">'+
                       '<textarea class="form-control" rows="4" id="evaluationText"></textarea>'+
@@ -463,26 +463,26 @@
 
       }
 
-      function getUserProductRecord() {
-          var results = "";
-          var product = {};
-          product.userId = ${currentUser.id};
-          product.productId = ${productDetail.id};
-          $.ajax({
-              async : false, //设置同步
-              type : 'POST',
-              url : '${cp}/getUserProductRecord',
-              data : product,
-              dataType : 'json',
-              success : function(result) {
-                  results = result.result;
-              },
-              error : function(result) {
-                  layer.alert('查询错误');
-              }
-          });
-          return results;
-      }
+      <%--function getUserProductRecord() {--%>
+      <%--    var results = "";--%>
+      <%--    var product = {};--%>
+      <%--    product.userId = ${currentUser.id};--%>
+      <%--    product.productId = ${productDetail.id};--%>
+      <%--    $.ajax({--%>
+      <%--        async : false, //设置同步--%>
+      <%--        type : 'POST',--%>
+      <%--        url : '${cp}/getUserProductRecord',--%>
+      <%--        data : product,--%>
+      <%--        dataType : 'json',--%>
+      <%--        success : function(result) {--%>
+      <%--            results = result.result;--%>
+      <%--        },--%>
+      <%--        error : function(result) {--%>
+      <%--            layer.alert('查询错误');--%>
+      <%--        }--%>
+      <%--    });--%>
+      <%--    return results;--%>
+      <%--}--%>
 
       function getEvaluations() {
           var evaluations = "";

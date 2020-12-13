@@ -113,5 +113,7 @@ jQuery(document).ready(function($) {
           $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top -0 }, 500, 'linear');
         });
 
+        $('remove1').unbind("click");
+
 
 });

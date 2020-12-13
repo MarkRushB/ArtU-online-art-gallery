@@ -117,6 +117,7 @@
 
             if(loginResult == 'success'){
                 layer.msg('登录成功',{icon:1});
+                console.log("${cp}/main");
                 window.location.href = "${cp}/main";
             }
             else if(loginResult == 'unexist'){

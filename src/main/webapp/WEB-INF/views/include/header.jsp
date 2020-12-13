@@ -17,7 +17,7 @@
     <script src="${cp}/js/layer.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
     <script src="${cp}/js/html5shiv.min.js"></script>
-    <script src="${cp}/js/js/respond.min.js"></script>
+    <script src="${cp}/js/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -38,8 +38,8 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <c:if test="${empty currentUser}">
-                    <li><a href="register" methods="post">Register</a></li>
-                    <li><a href="login" methods="post">Login</a></li>
+                    <li><a href="register"  methods="post" onclick="re()">Register</a></li>
+                    <li><a href="login" methods="post" onclick="lo()">Login</a></li>
                 </c:if>
                 <c:if test="${not empty currentUser}">
                     <c:if test="${currentUser.role == 1}">
@@ -51,14 +51,14 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="${cp}/shopping_car">My Favorite</a></li>
-                            <li><a href="${cp}/shopping_record">Orders</a></li>
+                            <li><a href="${cp}/shopping_car" onclick="fav()">My Favorite</a></li>
+                            <li><a href="${cp}/shopping_record" onclick="or()">Orders</a></li>
                             <c:if test="${currentUser.role == 1}">
                                 <li><a href="${cp}/shopping_handle">Processing Order</a></li>
                             </c:if>
                             <li role="separator" class="divider"></li>
-                            <li><a href="${cp}/amend_info">Modify Information</a></li>
-                            <li><a href="${cp}/doLogout">Sign Out</a></li>
+                            <li><a href="${cp}/amend_info" onclick="mo()">Modify Information</a></li>
+                            <li><a href="${cp}/doLogout" onclick="so()">Sign Out</a></li>
                         </ul>
                     </li>
                 </c:if>
@@ -106,6 +106,24 @@
         });
         if(searchResult == "success")
             window.location.href = "${cp}/search";
+    }
+    function re(){
+        window.location.href = "${cp}/register";
+    }
+    function lo(){
+        window.location.href = "${cp}/login";
+    }
+    function fav(){
+        window.location.href = "${cp}/shopping_car";
+    }
+    function or(){
+        window.location.href = "${cp}/shopping_record";
+    }
+    function mo(){
+        window.location.href = "${cp}/amend_info";
+    }
+    function so(){
+        window.location.href = "${cp}/doLogout";
     }
 </script>
 
