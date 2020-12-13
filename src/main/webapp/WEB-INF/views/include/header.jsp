@@ -51,14 +51,14 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="${cp}/shopping_car">购物车</a></li>
-                            <li><a href="${cp}/shopping_record">订单状态</a></li>
+                            <li><a href="${cp}/shopping_car">My Favorite</a></li>
+                            <li><a href="${cp}/shopping_record">Orders</a></li>
                             <c:if test="${currentUser.role == 1}">
-                                <li><a href="${cp}/shopping_handle">处理订单</a></li>
+                                <li><a href="${cp}/shopping_handle">Processing Order</a></li>
                             </c:if>
                             <li role="separator" class="divider"></li>
-                            <li><a href="${cp}/amend_info">个人资料修改</a></li>
-                            <li><a href="${cp}/doLogout">注销登录</a></li>
+                            <li><a href="${cp}/amend_info">Modify Information</a></li>
+                            <li><a href="${cp}/doLogout">Sign Out</a></li>
                         </ul>
                     </li>
                 </c:if>

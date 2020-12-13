@@ -30,7 +30,6 @@
       <script src="${cp}/js/respond.min.js"></script>
     <![endif]-->
 
-
   </head>
   <body>
     <!--导航栏部分-->
@@ -109,12 +108,12 @@
         <div id="main">
             <div class="inner">
 
-                <!-- Header -->
-                <header id="header">
-                    <div class="logo">
-                        <a href="index.html">Ramayana</a>
-                    </div>
-                </header>
+<%--                <!-- Header -->--%>
+<%--                <header id="header">--%>
+<%--                    <div class="logo">--%>
+<%--                        <a href="index.html">Ramayana</a>--%>
+<%--                    </div>--%>
+<%--                </header>--%>
 
                 <!-- Page Heading -->
                 <div class="page-heading">
@@ -186,34 +185,48 @@
                     </div>
                 </section>
 
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-default" onclick="subCounts()">-</button>
-                    <button id="productCounts" type="button" class="btn btn-default">1</button>
-                    <button type="button" class="btn btn-default" onclick="addCounts(1)">+</button>
-                </div>
 
-                <div class="row">
-                    <div class="col-sm-1 col-md-1 col-lg-1"></div>
-                    <fieldset class="contact-form">
-                        <button type="submit" id="form-submit" class="button" onclick="addToShoppingCar(${productDetail.id})">Like</button>
-                    </fieldset>
-                    <div class="col-sm-2 col-md-2 col-lg-2 "></div>
-                    <fieldset class="contact-form">
-                        <button type="submit" id="form-submit" class="button" onclick="buyConfirm(${productDetail.id})">Purchase</button>
-                    </fieldset>
-                </div>
-                <div class="row">
-                    <div class="col-sm-1 col-md-1 col-lg-1"></div>
-                    <div class="col-sm-10 col-md-10 col-lg-10">
-                        <hr class="division"/>
-                        <table class="table evaluationTable" border="0" id="evaluation">
-                        </table>
-                        <hr/>
-                        <div id="inputArea"></div>
+
+            <section class="main-banner">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="banner-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="banner-caption">
+                                            <h4>Welcome to <em>ArtU</em></h4>
+                                            <span>Art is priceless, but Artwork has a price</span>
+                                            <p>Personal maintenance is not easy, we have prepared decorative ornaments for this painting for you, you can purchase to support us</p>
+                                            <div class="btn-group " role="group" style="padding-bottom: 30px; padding-left: 6%">
+                                                <button type="button" class="btn btn-default" onclick="subCounts()">-</button>
+                                                <button id="productCounts" type="button" class="btn btn-default">1</button>
+                                                <button type="button" class="btn btn-default" onclick="addCounts(1)">+</button>
+                                            </div>
+                                            <fieldset class="contact-form" style="display: inline-block; margin: auto 2px auto 30px; ">
+                                                <button type="submit" id="form-submit" class="button" onclick="addToShoppingCar(${productDetail.id})">Like</button>
+                                            </fieldset>
+                                            <fieldset class="contact-form" style="display: inline-block; margin: auto 2px auto 0px; ">
+                                                <button type="submit" id="form-submit" class="button" onclick="buyConfirm(${productDetail.id})">Purchase</button>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
+            </section>
+            <div class="row">
+                <div class="col-sm-1 col-md-1 col-lg-1"></div>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <hr class="division"/>
+                    <table class="table evaluationTable" border="0" id="evaluation">
+                    </table>
+                    <hr/>
+                    <div id="inputArea"></div>
+                </div>
+            </div>
             </div>
         </div>
 
@@ -247,7 +260,7 @@
               }
           });
           if(addResult == "success") {
-              layer.confirm('前往购物车？', {icon: 1, title:'添加成功',btn:['前往购物车','继续浏览']},
+              layer.confirm('Go to My Favorite?', {icon: 1, title:'Added Successful',btn:['My Favorite','Continue Browsing']},
                       function(){
                           window.location.href = "${cp}/shopping_car";
                       },
@@ -290,40 +303,40 @@
                   '<div class="col-sm-10 col-md-10 col-lg-10">'+
                   '<table class="table confirm-margin">'+
                   '<tr>'+
-                  '<th>商品名称：</th>'+
+                  '<th>Title</th>'+
                   '<td>'+product.name+'</td>'+
                   '</tr>'+
                   '<tr>'+
-                  '<th>商品单价：</th>'+
+                  '<th>Artwork Price</th>'+
                   '<td>'+product.price+'</td>'+
                   '</tr>'+
                   '<tr>'+
-                  '<th>购买数量：</th>'+
+                  '<th>Purchase Quantity</th>'+
                   '<td>'+counts+'</td>'+
                   '</tr>'+
                   '<tr>'+
-                  '<th>总金额：</th>'+
+                  '<th>Total Cost</th>'+
                   '<td>'+counts*product.price+'</td>'+
                   '</tr>'+
                   '<tr>'+
-                  '<th>收货地址：</th>'+
+                  '<th>Delivery Address</th>'+
                   '<td>'+address+'</td>'+
                   '</tr>'+
                   '<tr>'+
-                  '<th>联系电话：</th>'+
+                  '<th>Phone Number</th>'+
                   '<td>'+phoneNumber+'</td>'+
                   '</tr>'+
                   '</table>'+
                   '<div class="row">'+
                   '<div class="col-sm-4 col-md-4 col-lg-4"></div>'+
-                  '<button class="btn btn-danger col-sm-4 col-md-4 col-lg-4" onclick="addToShoppingRecords('+productId+')">确认购买</button>'+
+                  '<button class="btn btn-danger col-sm-4 col-md-4 col-lg-4" onclick="addToShoppingRecords('+productId+')">Place Order</button>'+
                   '</div>'+
                   '</div>';
           layer.open({
               type:1,
-              title:'请确认订单信息：',
+              title:'Please Confirm Order Information：',
               content:html,
-              area:['650px','350px'],
+              area:['700px','450px'],
           });
       }
 

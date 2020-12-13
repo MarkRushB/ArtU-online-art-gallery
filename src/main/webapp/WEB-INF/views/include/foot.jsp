@@ -22,11 +22,7 @@
     <!-- 尾部 -->
     <hr/>
     <div class="foot-style">
-        Thank you
-        <br/>
-
-        <br/>
-
+        <p>Art<b>U</b>-Bring the world art to you</p>
     </div>
     <!-- 结束啦 -->
 

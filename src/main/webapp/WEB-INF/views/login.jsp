@@ -12,6 +12,9 @@
       <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
       <link href="${cp}/css/style.css" rel="stylesheet">
 
+      <link rel="stylesheet" href="${cp}/signup/fonts/material-icon/css/material-design-iconic-font.min.css">
+      <link rel="stylesheet" href="${cp}/signup/css/style.css">
+
       <script src="${cp}/js/jquery.min.js" type="text/javascript"></script>
       <script src="${cp}/js/bootstrap.min.js" type="text/javascript"></script>
       <script src="${cp}/js/layer.js" type="text/javascript"></script>
@@ -24,37 +27,70 @@
     <!--导航栏部分-->
     <jsp:include page="include/header.jsp"/>
 
-    <!-- 中间内容 -->
-    <div class="container-fluid" style="padding-top: 80px;padding-bottom: 80px" >
 
-        <h1 class="title center">登录</h1>
-        <br/>
-        <div class="col-sm-offset-2 col-md-offest-2">
-            <!-- 表单输入 -->
-            <div  class="form-horizontal">
-                <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 col-md-2 control-label">邮箱/用户名</label>
-                    <div class="col-sm-6 col-md-6">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="xxxxxx@xx.com"/>
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Login</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="inputEmail"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="inputEmail" placeholder="Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="email" id="inputPassword" placeholder="Password"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Login" onclick="startLogin()"/>
+                            </div>
+                        </form>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="col-sm-2 col-md-2 control-label">密码</label>
-                    <div class="col-sm-6 col-md-6">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="禁止输入非法字符" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-6">
-                        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="startLogin()">登录</button>
+                    <div class="signup-image">
+                        <figure><img src="${cp}/img/Login.jpg" alt="Login image"></figure>
                     </div>
                 </div>
             </div>
-            <br/>
-        </div>
+        </section>
     </div>
 
+
+<%--    <div class="container-fluid" style="padding-top: 80px;padding-bottom: 80px" >--%>
+
+<%--        <h1 class="title center">登录</h1>--%>
+<%--        <br/>--%>
+<%--        <div class="col-sm-offset-2 col-md-offest-2">--%>
+<%--            <!-- 表单输入 -->--%>
+<%--            <div  class="form-horizontal">--%>
+<%--                <div class="form-group">--%>
+<%--                    <label for="inputEmail" class="col-sm-2 col-md-2 control-label">邮箱/用户名</label>--%>
+<%--                    <div class="col-sm-6 col-md-6">--%>
+<%--                        <input type="text" class="form-control" id="inputEmail" placeholder="xxxxxx@xx.com"/>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="form-group">--%>
+<%--                    <label for="inputPassword" class="col-sm-2 col-md-2 control-label">密码</label>--%>
+<%--                    <div class="col-sm-6 col-md-6">--%>
+<%--                        <input type="password" class="form-control" id="inputPassword" placeholder="禁止输入非法字符" />--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="form-group">--%>
+<%--                    <div class="col-sm-offset-2 col-sm-6">--%>
+<%--                        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="startLogin()">登录</button>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <br/>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+
     <!--尾部-->
+    <script src="${cp}/signup/vendor/jquery/jquery.min.js"></script>
+    <script src="${cp}/signup/js/main.js"></script>
     <jsp:include page="include/foot.jsp"/>
 
     <script type="text/javascript">
