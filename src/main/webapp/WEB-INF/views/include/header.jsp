@@ -43,10 +43,10 @@
                 </c:if>
                 <c:if test="${not empty currentUser}">
                     <c:if test="${currentUser.role == 1}">
-                        <li><a href="${cp}/control" methods="post">Control Panel</a></li>
+                        <li><a href="${cp}/control" methods="post" onclick="con()">Control Panel</a></li>
                     </c:if>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 ${currentUser.nickName}
                             <span class="caret"></span>
                         </a>
@@ -124,6 +124,9 @@
     }
     function so(){
         window.location.href = "${cp}/doLogout";
+    }
+    function con(){
+        window.location.href = "${cp}/control";
     }
 </script>
 

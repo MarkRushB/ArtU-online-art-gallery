@@ -32,9 +32,9 @@
             <!-- 控制栏 -->
             <div class="col-sm-3 col-md-2 sidebar sidebar-1">
                 <ul class="nav nav-sidebar">
-                    <li class="list-group-item-diy"><a href="#section1">查看所有用户<span class="sr-only">(current)</span></a></li>
-                    <li class="list-group-item-diy"><a href="#section2">查看所有商品</a></li>
-                    <li class="list-group-item-diy"><a href="#section3">添加商品</a></li>
+                    <li class="list-group-item-diy"><a href="#section1">Manage Users<span class="sr-only">(current)</span></a></li>
+                    <li class="list-group-item-diy"><a href="#section2">Manage Paintings</a></li>
+                    <li class="list-group-item-diy"><a href="#section3">Add Paintings</a></li>
                 </ul>
             </div>
             <!-- 控制内容 -->

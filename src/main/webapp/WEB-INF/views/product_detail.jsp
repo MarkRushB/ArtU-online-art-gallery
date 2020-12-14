@@ -185,9 +185,21 @@
                     </div>
                 </section>
 
+        <div class="row">
+<%--            <div class="col-sm-1 col-md-1 col-lg-1"></div>--%>
+            <div class="col-md-8 col-md-offset-2 ">
+                <h3 align="center"><b style="color: rgba(83,91,160,0.82)">Comment Here!</b></h3>
+                <h6 align="center" style="color: #5a6268">Communicate with worldwide artists</h6>
+                <hr class="division"/>
+                <table class="table evaluationTable" border="0" id="evaluation">
+                </table>
+                <hr/>
+                <div id="inputArea"></div>
+            </div>
+        </div>
 
 
-            <section class="main-banner">
+            <section class="main-banner" style="margin-top: 50px;">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
@@ -217,16 +229,6 @@
                     </div>
                 </div>
             </section>
-            <div class="row">
-                <div class="col-sm-1 col-md-1 col-lg-1"></div>
-                <div class="col-sm-10 col-md-10 col-lg-10">
-                    <hr class="division"/>
-                    <table class="table evaluationTable" border="0" id="evaluation">
-                    </table>
-                    <hr/>
-                    <div id="inputArea"></div>
-                </div>
-            </div>
             </div>
         </div>
 
@@ -451,13 +453,28 @@
 
           if("${currentUser}"!==""){
               var inputArea = document.getElementById("inputArea");
-              html= '<div class="col-sm-12 col-md-12 col-lg-12">'+
-                      '<textarea class="form-control" rows="4" id="evaluationText"></textarea>'+
-                      '</div>'+
-                      '<div class="col-sm-12 col-md-12 col-lg-12">'+
-                      '<div class="col-sm-4 col-md-4 col-lg-4"></div>'+
-                      '<button class="btn btn-primary btn-lg evaluationButton col-sm-4 col-md-4 col-lg-4" onclick="addToEvaluation()">评价</button>'+
-                      '</div>';
+              html=
+                  // '<div class="col-sm-12 col-md-12 col-lg-12">'+
+                  //     '<textarea class="form-control" rows="4" id="evaluationText"></textarea>'+
+                  //     '</div>'+
+                  //     '<div class="col-sm-12 col-md-12 col-lg-12">'+
+                  //     '<div class="col-sm-4 col-md-4 col-lg-4"></div>'+
+                  //     '<button class="btn btn-primary btn-lg evaluationButton col-sm-4 col-md-4 col-lg-4" onclick="addToEvaluation()">评价</button>'+
+                  //     '</div>'+
+              '<section class="contact-form">'+
+              '<div class="col-md-6 col-md-offset-3">'+
+                  '<div class="col-md-12">'+
+              '<fieldset>'+
+              ' <textarea name="message" rows="6" class="form-control" id="evaluationText" placeholder="When you are browsing this painting, what do you think?" required=""></textarea>'+
+              '</fieldset>'+
+              '</div>'+
+              '<div class="col-md-12">'+
+              '<fieldset>'+
+              '<button style="margin: 0 37%" type="submit" id="form-submit" class="button" onclick="addToEvaluation()">Comment</button>'+
+              '</fieldset>'+
+              '</div>'+
+              '</div>'+
+              '</section>';
               inputArea.innerHTML +=html;
           }
 

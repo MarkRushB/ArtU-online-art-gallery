@@ -49,7 +49,7 @@ public class ShoppingRecordController {
             shoppingRecord.setCounts(counts);
             shoppingRecord.setOrderStatus(0);
             Date date = new Date();
-            SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+            SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             shoppingRecord.setTime(sf.format(date));
             product.setCounts(product.getCounts()-counts);
             productService.updateProduct(product);

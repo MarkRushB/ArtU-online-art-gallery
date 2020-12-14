@@ -17,7 +17,7 @@
 	  <script src="${cp}/js/layer.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
       <script src="${cp}/js/html5shiv.min.js"></script>
-      <script src="${cp}/js/respond.min.js"></script>
+		  <script src="${cp}/js/respond.min.js"></script>
     <![endif]-->
   </head>
   <body>
@@ -29,8 +29,8 @@
 		<div class="row">
 			<div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
 				<div class="jumbotron">
-					<h1>欢迎来到购物车</h1>
-					<p>您的购物车清单为</p>
+					<h1>Hi, ${sessionScope.currentUser.nickName}</h1>
+					<p>Welcome to your Shopping cart</p>
 				</div>
 			</div>
 			<div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
@@ -40,7 +40,7 @@
 				<hr/>
 				<div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-4"></div>
-					<button type="button" class="btn btn-danger btn-lg col-lg-4 col-md-4 col-sm-4" onclick="confirmPre()">确认购买</button>
+					<button type="button" class="btn btn-danger btn-lg col-lg-4 col-md-4 col-sm-4" onclick="confirmPre()">Place Order</button>
 				</div>
 			</div>
 		</div>
@@ -56,10 +56,10 @@
 			var allShoppingCars = getShoppingCars();
 			shoppingCarTable.innerHTML = "";
 			var html = '<tr>'+
-							'<th>是否购买</th>'+
-							'<th>商品名称</th>'+
-							'<th>商品单价</th>'+
-							'<th>商品数量</th>'+
+							'<th>Select to buy</th>'+
+							'<th>Painting name</th>'+
+							'<th>Artwork unit price</th>'+
+							'<th>Amount</th>'+
 						'</tr>';
 			for(var i=0;i<allShoppingCars.length;i++){
 				var product = getProductById(allShoppingCars[i].productId);
@@ -116,7 +116,7 @@
 				}
 			}
 			if(buyCounts == 0){
-				layer.msg("未选中商品",{icon:2});
+				layer.msg("Please Select Items",{icon:2});
 			}
 			else{
 				buyConfirm(buyProducts,buyProductsCounts);
@@ -161,35 +161,35 @@
 			for(var i=0;i<productsId.length;i++){
 				var product = getProductById(productsId[i]);
 				html +=	'<tr>'+
-					'<th>商品'+(i+1)+'名称：</th>'+
+					'<th>Painting'+'Name：</th>'+
 					'<td>'+product.name+'</td>'+
 					'</tr>'+
 					'<tr>'+
-					'<th>商品单价：</th>'+
+					'<th>Artwork Unit Price：</th>'+
 					'<td>'+product.price+'</td>'+
 					'</tr>'+
 					'<tr>'+
-					'<th>购买数量：</th>'+
+					'<th>Amount：</th>'+
 					'<td>'+productsCounts[i]+'</td>'+
 					'</tr>'+
 					'<tr>';
 				totalPrice+=product.price*productsCounts[i];
 			}
-			html +='<th>总金额：</th>'+
+			html +='<th>Total Price：</th>'+
 					'<td>'+totalPrice+'</td>'+
 					'</tr>'+
 					'<tr>'+
-					'<th>收货地址：</th>'+
+					'<th>Delivery Address：</th>'+
 					'<td>'+address+'</td>'+
 					'</tr>'+
 					'<tr>'+
-					'<th>联系电话：</th>'+
+					'<th>Contact Number：</th>'+
 					'<td>'+phoneNumber+'</td>'+
 					'</tr>'+
 					'</table>'+
 					'<div class="row">'+
 					'<div class="col-sm-4 col-md-4 col-lg-4"></div>'+
-					'<button class="btn btn-danger col-sm-4 col-md-4 col-lg-4" onclick="addToShoppingRecordsPre(['+productsId+'],['+productsCounts+'])">确认购买</button>'+
+					'<button class="btn btn-danger col-sm-4 col-md-4 col-lg-4" onclick="addToShoppingRecordsPre(['+productsId+'],['+productsCounts+'])">Place Order</button>'+
 					'</div>'+
 					'</div>';
 			layer.open({
@@ -246,7 +246,7 @@
 			for(var i=0;i<productsId.length;i++){
 				addToShoppingRecords(productsId[i],productsCounts[i]);
 			}
-			layer.confirm('前往订单状态？', {icon: 1, title:'购买成功',btn:['前往订单','继续购买']},
+			layer.confirm('Go to the Order Page？', {icon: 1, title:'Purchase Successfully',btn:['Skip to Order Page','Keep Purchasing']},
 					function(){
 						window.location.href = "${cp}/shopping_record";
 					},

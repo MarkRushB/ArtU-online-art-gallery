@@ -29,17 +29,17 @@
     <div class="row">
         <div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
             <div class="jumbotron">
-                <h1>欢迎来到订单页</h1>
-                <p>您的购买清单为</p>
+                <h1>Hi, ${sessionScope.currentUser.nickName}</h1>
+                <p>Welcome to Your Order Page</p>
             </div>
         </div>
         <div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
             <div class="row">
                 <ul class="nav nav-tabs list-group-diy" role="tablist">
-                    <li role="presentation" class="active list-group-item-diy"><a href="#unHandle" aria-controls="unHandle" role="tab" data-toggle="tab">待发货订单&nbsp;<span class="badge" id="unHandleCount">0</span></a></li>
-                    <li role="presentation" class="list-group-item-diy"><a href="#transport" aria-controls="transport" role="tab" data-toggle="tab">运输中订单&nbsp;<span class="badge" id="transportCount">0</span></a></li>
-                    <li role="presentation" class="list-group-item-diy"><a href="#receive" aria-controls="receive" role="tab" data-toggle="tab">已收货订单&nbsp;<span class="badge" id="receiveCount">0</span></a></li>
-                    <li role="presentation" class="list-group-item-diy"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">全部订单&nbsp;<span class="badge" id="allCount">0</span></a></li>
+                    <li role="presentation" class="active list-group-item-diy"><a href="#unHandle" aria-controls="unHandle" role="tab" data-toggle="tab">Unshipped Orders<span class="badge" id="unHandleCount">0</span></a></li>
+                    <li role="presentation" class="list-group-item-diy"><a href="#transport" aria-controls="transport" role="tab" data-toggle="tab">Orders in Transit&nbsp;<span class="badge" id="transportCount">0</span></a></li>
+                    <li role="presentation" class="list-group-item-diy"><a href="#receive" aria-controls="receive" role="tab" data-toggle="tab">Received<span class="badge" id="receiveCount">0</span></a></li>
+                    <li role="presentation" class="list-group-item-diy"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">Total Orders&nbsp;<span class="badge" id="allCount">0</span></a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -73,9 +73,9 @@
 
     function updateShoppingRecords() {
         var orderArray = new Array;
-        orderArray[0] = "未发货";
-        orderArray[1] = "配送中";
-        orderArray[2] = "已收货";
+        orderArray[0] = "Unshipped";
+        orderArray[1] = "In Transit";
+        orderArray[2] = "Received";
         var unHandleTable = document.getElementById("unHandleTable");
         var transportTable = document.getElementById("transportTable");
         var receiveTable = document.getElementById("receiveTable");
@@ -97,32 +97,36 @@
         receiveTable.innerHTML = "";
         allTable.innerHTML = "";
         var unHandleHTML = '<tr>'+
-                '<th>商品名称</th>'+
-                '<th>购买数量</th>'+
-                '<th>付款金额</th>'+
-                '<th>订单状态</th>'+
+                '<th>Painting Name</th>'+
+                '<th>Amount</th>'+
+                '<th>Payment</th>'+
+                '<th>Order Date</th>'+
+                '<th>Order Status</th>'+
                 '</tr>';
         var transportHTML = '<tr>'+
-                '<th>商品名称</th>'+
-                '<th>购买数量</th>'+
-                '<th>付款金额</th>'+
-                '<th>送货地址</th>'+
-                '<th>联系电话</th>'+
-                '<th>订单状态</th>'+
-                '<th>确认收货</th>'+
+                '<th>Painting Name</th>'+
+                '<th>Amount</th>'+
+                '<th>Payment</th>'+
+                '<th>Delivery Address</th>'+
+                '<th>Contact Number</th>'+
+                '<th>Order Date</th>'+
+                '<th>Order status</th>'+
+                '<th>Confirm</th>'+
                 '</tr>';
         var receiveHTML = '<tr>'+
-                '<th>商品名称</th>'+
-                '<th>购买数量</th>'+
-                '<th>付款金额</th>'+
-                '<th>订单状态</th>'+
-                '<th>评价</th>'+
+                '<th>Painting Name</th>'+
+                '<th>Amount</th>'+
+                '<th>Payment</th>'+
+                '<th>Order Date</th>'+
+                '<th>Order Status</th>'+
+                '<th>Comment</th>'+
                 '</tr>';
         var allHTML = '<tr>'+
-                '<th>商品名称</th>'+
-                '<th>购买数量</th>'+
-                '<th>付款金额</th>'+
-                '<th>订单状态</th>'+
+                '<th>Painting Name</th>'+
+                '<th>Amount</th>'+
+                '<th>Payment</th>'+
+                '<th>Order Date</th>'+
+                '<th>Order Status</th>'+
                 '</tr>';
         var unHandleHTMLTemp = "";
         var transportHTMLTemp = "";
@@ -135,6 +139,7 @@
                     '<td>'+product.name+'</td>'+
                     '<td>'+allShoppingRecords[i].counts+'</td>'+
                     '<td>'+allShoppingRecords[i].productPrice+'</td>'+
+                    '<td>'+allShoppingRecords[i].time+'</td>'+
                     '<td>'+orderArray[allShoppingRecords[i].orderStatus]+'</td>'+
                     '</tr>';
             allCounts++;
@@ -143,6 +148,7 @@
                         '<td>'+product.name+'</td>'+
                         '<td>'+allShoppingRecords[i].counts+'</td>'+
                         '<td>'+allShoppingRecords[i].productPrice+'</td>'+
+                        '<td>'+allShoppingRecords[i].time+'</td>'+
                         '<td>'+orderArray[allShoppingRecords[i].orderStatus]+'</td>'+
                         '</tr>';
                 unHandleCounts++;
@@ -156,9 +162,10 @@
                         '<td>'+allShoppingRecords[i].productPrice+'</td>'+
                         '<td>'+address+'</td>'+
                         '<td>'+phoneNumber+'</td>'+
+                        '<td>'+allShoppingRecords[i].time+'</td>'+
                         '<td>'+orderArray[allShoppingRecords[i].orderStatus]+'</td>'+
                         '<td>'+
-                        '<button class="btn btn-primary btn-sm" onclick="receiveProducts('+allShoppingRecords[i].userId+','+allShoppingRecords[i].productId+',\''+allShoppingRecords[i].time+'\')">确认收货</button>'+
+                        '<button class="btn btn-primary btn-sm" onclick="receiveProducts('+allShoppingRecords[i].userId+','+allShoppingRecords[i].productId+',\''+allShoppingRecords[i].time+'\')">Confirm</button>'+
                         '</td>'+
                         '</tr>';
                 transportCounts++;
@@ -168,6 +175,7 @@
                         '<td>'+product.name+'</td>'+
                         '<td>'+allShoppingRecords[i].counts+'</td>'+
                         '<td>'+allShoppingRecords[i].productPrice+'</td>'+
+                        '<td>'+allShoppingRecords[i].time+'</td>'+
                         '<td>'+orderArray[allShoppingRecords[i].orderStatus]+'</td>'+
                         '<td>'+
                         '<button class="btn btn-primary btn-sm" onclick="productDetail('+allShoppingRecords[i].productId+')">评价</button>'+
@@ -180,7 +188,7 @@
             unHandleHTML='<div class="row">'+
                             '<div class="col-sm-3 col-md-3 col-lg-3"></div> '+
                             '<div class="col-sm-6 col-md-6 col-lg-6">'+
-                                '<h2>没有相关订单</h2>'+
+                                '<h2>No Order Record</h2>'+
                             '</div>'+
                         '</div>';
         }
@@ -190,7 +198,7 @@
             transportHTML = '<div class="row">'+
                     '<div class="col-sm-3 col-md-3 col-lg-3"></div> '+
                     '<div class="col-sm-6 col-md-6 col-lg-6">'+
-                    '<h2>没有相关订单</h2>'+
+                    '<h2>No Order Record</h2>'+
                     '</div>'+
                     '</div>';
         }
@@ -200,7 +208,7 @@
             receiveHTML = '<div class="row">'+
                     '<div class="col-sm-3 col-md-3 col-lg-3"></div> '+
                     '<div class="col-sm-6 col-md-6 col-lg-6">'+
-                    '<h2>没有相关订单</h2>'+
+                    '<h2>No Order Record</h2>'+
                     '</div>'+
                     '</div>';
         }
@@ -210,7 +218,7 @@
             allHTML = '<div class="row">'+
                     '<div class="col-sm-3 col-md-3 col-lg-3"></div> '+
                     '<div class="col-sm-6 col-md-6 col-lg-6">'+
-                    '<h2>没有相关订单</h2>'+
+                    '<h2>No Order Record</h2>'+
                     '</div>'+
                     '</div>';
         }
