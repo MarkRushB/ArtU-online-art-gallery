@@ -46,7 +46,7 @@
                                 <input type="password" name="email" id="inputPassword" placeholder="Password"/>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Login" onclick="startLogin()"/>
+                                <input type="button" name="signup" id="signup" class="form-submit" value="Login" onclick="startLogin()"/>
                             </div>
                         </form>
                     </div>
@@ -100,6 +100,7 @@
             var loginResult = "";
             user.userNameOrEmail = document.getElementById("inputEmail").value;
             user.password = document.getElementById("inputPassword").value;
+
             $.ajax({
                 async : false,
                 type : 'POST',
@@ -107,6 +108,7 @@
                 data : user,
                 dataType : 'json',
                 success : function(result) {
+                    console.log(result);
                     loginResult = result.result;
                     layer.close(loading);
                 },
@@ -115,10 +117,11 @@
                 }
             });
 
-            if(loginResult == 'success'){
+
+            if(loginResult === 'success'){
+                console.log(loginResult,'123');
                 layer.msg('登录成功',{icon:1});
-                console.log("${cp}/main");
-                window.location.href = "${cp}/main";
+                window.location='http://localhost:8080/ArtU/main';
             }
             else if(loginResult == 'unexist'){
                 layer.msg('是不是用户名记错了？',{icon:2});

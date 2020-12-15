@@ -54,8 +54,10 @@ public class UserController {
         return "main";
     }
 
+//
+
     @RequestMapping(value = "/control")
-    public String control() {
+    public String control1() {
         return "control";
     }
 

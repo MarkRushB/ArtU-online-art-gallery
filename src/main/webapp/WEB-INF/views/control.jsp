@@ -1,355 +1,426 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: markz
+  Date: 2020/12/14
+  Time: 11:46
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>购物+</title>
-      <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
-      <link href="${cp}/css/style.css" rel="stylesheet">
+    <title>ArtU Admin Dashboard</title>
+    <meta name="description" content="">
+    <meta name="author" content="templatemo">
+    <!--
+    Visual Admin Template
+    https://templatemo.com/tm-455-visual-admin
+    -->
+<%--    origin--%>
+    <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${cp}/css/style.css" rel="stylesheet">
 
-      <script src="${cp}/js/jquery.min.js" type="text/javascript"></script>
-      <script src="${cp}/js/ajaxfileupload.js" type="text/javascript"></script>
-      <script src="${cp}/js/bootstrap.min.js" type="text/javascript"></script>
-      <script src="${cp}/js/layer.js" type="text/javascript"></script>
+    <script src="${cp}/js/jquery.min.js" type="text/javascript"></script>
+    <script src="${cp}/js/ajaxfileupload.js" type="text/javascript"></script>
+    <script src="${cp}/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="${cp}/js/layer.js" type="text/javascript"></script>
+<%--    template--%>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+    <link href="${cp}/control/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${cp}/control/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${cp}/control/css/templatemo-style.css" rel="stylesheet">
 
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>-->
+<!--    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
       <script src="${cp}/js/html5shiv.min.js"></script>
       <script src="${cp}/js/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <!--导航栏部分-->
-    <jsp:include page="include/header.jsp"/>
 
-    <!-- 中间内容 -->
-    <div class="container-fluid">
-        <div class="row">
-            <!-- 控制栏 -->
-            <div class="col-sm-3 col-md-2 sidebar sidebar-1">
-                <ul class="nav nav-sidebar">
-                    <li class="list-group-item-diy"><a href="#section1">Manage Users<span class="sr-only">(current)</span></a></li>
-                    <li class="list-group-item-diy"><a href="#section2">Manage Paintings</a></li>
-                    <li class="list-group-item-diy"><a href="#section3">Add Paintings</a></li>
-                </ul>
-            </div>
-            <!-- 控制内容 -->
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <div class="col-md-12">
-                    <h1><a name="section1">用户信息</a></h1>
-                    <hr/>
-                    <table class="table table-hover center" id="userTable">
-                    </table>
-                </div>
 
-                <div class="col-md-12">
-                    <hr/>
-                    <h1><a name="section2">商品信息</a></h1>
-                    <hr/>
-                    <div class="col-lg-12 col-md-12 col-sm-12" id="productArea"></div>
-                    <br/>
-                </div>
+</head>
+<body style="padding-top: 0px;">
+<!-- Left column -->
+<div class="templatemo-flex-row">
+    <div class="templatemo-sidebar">
+        <div class="profile-photo-container">
+            <img src="${cp}/control/images/profile-photo.jpg" alt="Profile Photo">
+            <div class="profile-photo-overlay"></div>
+        </div>
+        <header class="templatemo-site-header">
+            <div class="square"></div>
+            <h1>Hi, ${currentUser.nickName}</h1>
+            <h3 style="margin: 30px 0">Here is Your Control Panel</h3>
+        </header>
 
-                <div class="col-md-12">
-                    <hr/>
-                    <h1><a name="section3">添加商品</a></h1>
-                    <hr/>
-                    <div class="col-sm-offset-2 col-md-offest-2">
-                        <!-- 表单输入 -->
-                        <div  class="form-horizontal">
-                            <div class="form-group">
-                                <label for="productName" class="col-sm-2 col-md-2 control-label">商品名称</label>
-                                <div class="col-sm-6 col-md-6">
-                                    <input type="text" class="form-control" id="productName" placeholder="倚天剑" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="productDescribe" class="col-sm-2 col-md-2 control-label">商品描述</label>
-                                <div class="col-sm-6 col-md-6">
-                                    <textarea type="text" class="form-control" id="productDescribe" placeholder="balabalabalabala"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="keyWord" class="col-sm-2 col-md-2 control-label">关键词</label>
-                                <div class="col-sm-6 col-md-6">
-                                    <textarea type="text" class="form-control" id="keyWord" placeholder="xxxx;xxxx;xxxx"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="productPrice" class="col-sm-2 col-md-2 control-label">商品价格</label>
-                                <div class="col-sm-6 col-md-6">
-                                    <input type="text" class="form-control" id="productPrice" placeholder="399" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="productCount" class="col-sm-2 col-md-2 control-label">商品数量</label>
-                                <div class="col-sm-6 col-md-6">
-                                    <input type="text" class="form-control" id="productCount" placeholder="100" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="productType" class="col-sm-2 col-md-2 control-label">商品类别</label>
-                                <div class="col-sm-6 col-md-6">
-                                    <select name="productType" class="form-control" id="productType">
-                                        <option value="1">衣服配饰</option>
-                                        <option value="2">数码产品</option>
-                                        <option value="3">书籍办公</option>
-                                        <option value="4">游戏周边</option>
-                                        <option value="5">生活用品</option>
-                                        <option value="6">化妆用品</option>
-                                        <option value="7">运动用品</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="productImgUpload" class="col-sm-2 col-md-2 control-label" accept="image/jpg">商品图片</label>
-                                <div class="col-sm-6 col-md-6">
-                                    <input name="productImgUpload" type="file"  id="productImgUpload"/>
-                                    <p class="help-block">上传的图片大小应为280*160大小</p>
-                                </div>
-                                <%--<button class="btn btn-primary col-sm-2 col-md-2" onclick="fileUpload()">上传图片</button>--%>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-6" id="imgPreSee">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-6">
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="addProduct()">添加商品</button>
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
+
+        <nav class="templatemo-left-nav">
+            <ul>
+                <li><a href="#s1"><i class="fa fa-user fa-fw"></i>Manager User</a></li>
+                <li><a href="#s2"><i class="fa fa-dashboard fa-fw"></i>Add Art</a></li>
+                <li><a href=""><i class="fa fa-desktop fa-fw"></i>Manage Art</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Main content -->
+    <div class="templatemo-content col-1 light-gray-bg">
+        <div class="templatemo-content-container">
+            <div class="templatemo-flex-row flex-content-row">
+                <div class="col-1">
+                    <div class="templatemo-content-widget blue-bg col-md-3">
+                        <i class="fa fa-times"></i>
+                        <h2 class="text-uppercase margin-bottom-10">Attention</h2>
+                        <p class="margin-bottom-0">Please be responsible to our users, please confirm before operation.</p>
+                    </div>
+                    <div class="templatemo-content-widget white-bg col-md-3">
+                        <i class="fa fa-times"></i>
+                        <h2 class="text-uppercase margin-bottom-10">Thank you</h2>
+                        <p class="margin-bottom-0">Because of your hard maintenance, we provide our users with a better user experience.</p>
                     </div>
                 </div>
             </div>
+            <div class="templatemo-content-widget no-padding">
+                <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase"><a name="s1">User Table</a></h2></div>
+                <div class="panel panel-default table-responsive">
+                    <table class="table table-striped table-bordered templatemo-user-table" id="userTable">
+                    </table>
+                </div>
+            </div>
+
+            <div class="templatemo-flex-row flex-content-row">
+                <div class="col-1">
+                    <div class="panel panel-default margin-10">
+                        <div class="panel-heading"><h2 class="text-uppercase"><a name="s2">Add Art</a></h2></div>
+                        <div class="panel-body">
+<%--                            <form action="index.html" class="templatemo-login-form">--%>
+                                <div class="form-group col-md-8 col-md-offset-2">
+                                    <label for="productName">Painting Title</label>
+                                    <input type="text" class="form-control" id="productName" placeholder="Enter Painting Name">
+                                </div>
+                                <div class="form-group col-md-8 col-md-offset-2">
+                                    <label for="productDescribe">Description</label>
+                                    <textarea class="form-control" placeholder="Enter Description" rows="4" id="productDescribe"></textarea>
+                                </div>
+                                <div class="form-group col-md-8 col-md-offset-2">
+                                    <label for="keyWord">Keywords</label>
+                                    <textarea class="form-control" placeholder="Enter Keywords" rows="2" id="keyWord"></textarea>
+                                </div>
+                                <div class="form-group col-md-8 col-md-offset-2">
+                                    <label for="productPrice">Artwork Price</label>
+                                    <input type="number" class="form-control" id="productPrice" placeholder="Enter Price">
+                                </div>
+                                <div class="form-group col-md-8 col-md-offset-2">
+                                    <label for="productCount">Amount of Artwork</label>
+                                    <input type="number" class="form-control" id="productCount" placeholder="Enter Amount">
+                                </div>
+                                <div class="form-group col-md-8 col-md-offset-2">
+                                    <label for="productType" class="control-label templatemo-block">Artist</label>
+                                    <select name="productType" class="form-control" id="productType">
+                                        <option value="1">Edward Hopper</option>
+                                        <option value="2">Claude Monet</option>
+                                        <option value="3">Salvador Dalí</option>
+                                        <option value="4">Vincent Van Gogh</option>
+                                        <option value="5">Paul Cézanne</option>
+                                        <option value="6">Pablo Picasso</option>
+                                        <option value="7">Peter Paul Rubens</option>
+                                    </select>
+                                </div>
+                                <div class="row form-group col-md-8 col-md-offset-2">
+                                        <label for="productImgUpload" class="control-label templatemo-block" accept="image/jpg">File Input</label>
+                                        <!-- <input type="file" name="fileToUpload" id="fileToUpload" class="margin-bottom-10"> -->
+                                        <input type="file" name="productImgUpload" id="productImgUpload" class="filestyle" data-buttonName="btn-primary" data-buttonBefore="true" data-icon="false">
+                                        <p>Maximum upload size is 5 MB.</p>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-6" id="imgPreSee">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-8 col-md-offset-2">
+                                    <button type="submit" class="templatemo-blue-button" onclick="addProduct()">Add Art</button>
+                                </div>
+<%--                            </form>--%>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-heading"><h2 class="text-uppercase"><a name="s23">Add Art</a></h2></div>
+            <div id="productArea" style="margin-right: -30%">
+                <%--                <div class="templatemo-content-widget white-bg col-md-4 templatemo-position-relative templatemo-content-img-bg">--%>
+                <%--                    <img src="images/sunset-big.jpg" alt="Sunset" class="img-responsive content-bg-img">--%>
+                <%--                    <i class="fa fa-heart"></i>--%>
+                <%--                    <h2 class="templatemo-position-relative white-text">Sunset</h2>--%>
+                <%--                    <div class="view-img-btn-wrap">--%>
+                <%--                        <a href="" class="btn btn-default templatemo-view-img-btn">View</a>--%>
+                <%--                    </div>--%>
+                <%--                </div>--%>
+            </div>
         </div>
     </div>
+</div>
+
+<!-- JS -->
+<%--<script src="${cp}/control/js/jquery-1.11.2.min.js"></script>--%>
+<%--<script src="${cp}/control/js/jquery-migrate-1.2.1.min.js"></script>--%>
+<script type="text/javascript" src="${cp}/control/js/templatemo-script.js"></script>
+<script type="text/javascript" src="${cp}/control/js/bootstrap-filestyle.min.js"></script>
+<script>
+    function productDetail(id) {
+        var product = {};
+        var jumpResult = '';
+        product.id = id;
+        $.ajax({
+            async : false, //设置同步
+            type : 'POST',
+            url : '${cp}/productDetail',
+            data : product,
+            dataType : 'json',
+            success : function(result) {
+                jumpResult = result.result;
+            },
+            error : function(resoult) {
+                layer.alert('查询错误');
+            }
+        });
+
+        if(jumpResult == "success"){
+            window.location.href = "${cp}/product_detail";
+        }
+    }
+</script>
+<script type="text/javascript">
+    var loading = layer.load(0);
+    listAllUser();
+    listAllProduct();
+    layer.close(loading);
+    //列出所有用户
+    function listAllUser() {
+        var userTable = document.getElementById("userTable");
+        var allUser = getAllUsers();
+        userTable.innerHTML =
+        '<thead>'+
+        '<tr>'+
+        '<td><a href="" class="white-text templatemo-sort-by">User ID</a></td>'+
+        '<td><a href="" class="white-text templatemo-sort-by">User Name</a></td>'+
+        '<td><a href="" class="white-text templatemo-sort-by">NickName</a></td>'+
+        '<td><a href="" class="white-text templatemo-sort-by">Email</a></td>'+
+        '<td><a href="" class="white-text templatemo-sort-by">Delete</a></td>'+
+        '</tr>'+
+        '</thead>';
+        var html = "";
+        for(var i=0;i<allUser.length;i++){
+            html +=
+                '<tbody>'+
+                '<tr>'+
+                '<td>'+allUser[i].id+'</td>'+
+                '<td>'+allUser[i].name+'</td>'+
+                '<td>'+allUser[i].nickName+'</td>'+
+                '<td>'+allUser[i].email+'</td>'+
+                '<td>'+
+                '<button class="btn btn-primary btn-sm" type="submit" onclick="deleteUser('+allUser[i].id+')">删除</button>'+
+                '</td>'+
+                '</tr>'+
+                '</tbody>';
+        }
+        userTable.innerHTML += html;
+    }
+
+    function getAllUsers() {
+        var allUsers = "";
+        var nothing = {};
+        $.ajax({
+            async : false, //设置同步
+            type : 'POST',
+            url : '${cp}/getAllUser',
+            data : nothing,
+            dataType : 'json',
+            success : function(result) {
+                if (result!=null) {
+                    allUsers = result.allUsers;
+                }
+                else{
+                    layer.alert('');
+                }
+            },
+            error : function(resoult) {
+                layer.alert('Get User Information Failed');
+            }
+        });
+        allUsers = eval("("+allUsers+")");
+        return allUsers;
+    }
 
 
-    <!-- 尾部 -->
-    <jsp:include page="include/foot.jsp"/>
-  <script type="text/javascript">
+    function listAllProduct() {
+        var productArea = document.getElementById("productArea");
+        var allProduct = getAllProducts();
+        var html="";
+        productArea.innerHTML = '';
 
-      var loading = layer.load(0);
-      listAllUser();
-      listAllProduct();
-      layer.close(loading);
-      //列出所有用户
-      function listAllUser() {
-          var userTable = document.getElementById("userTable");
-          var allUser = getAllUsers();
-          userTable.innerHTML = '<tr>'+
-                                  '<th> 用户ID </th>'+
-                                  '<th> 用户名</th>'+
-                                  '<th> 昵称</th>'+
-                                  '<th> 邮箱</th>'+
-                                  '<th> 是否删除</th>'+
-                                '</tr>';
-          var html = "";
-          for(var i=0;i<allUser.length;i++){
-              html += '<tr>'+
-                      '<td>'+allUser[i].id+'</td>'+
-                      '<td>'+allUser[i].name+'</td>'+
-                      '<td>'+allUser[i].nickName+'</td>'+
-                      '<td>'+allUser[i].email+'</td>'+
-                      '<td>'+
-                      '<button class="btn btn-primary btn-sm" type="submit" onclick="deleteUser('+allUser[i].id+')">删除</button>'+
-                      '</td>'+
-                      '</tr>';
-          }
-          userTable.innerHTML += html;
-      }
+        for(var i=0;i<allProduct.length;i++){
+            var imgURL = "${cp}/img/"+allProduct[i].id+".jpg";
+            html+=
+            '<div class="templatemo-content-widget white-bg col-md-3 templatemo-position-relative templatemo-content-img-bg">'+
+            '<img src="'+imgURL+'" alt="Sunset" class="img-responsive content-bg-img">'+
+            '<i class="fa fa-heart"></i>'+
+            '<h2 class="templatemo-position-relative white-text">'+'<b>'+"Painting Name:"+'</b>'+allProduct[i].name+'</h2>'+
+            '<h2 class="templatemo-position-relative white-text">'+allProduct[i].price+'</h2>'+
+            '<h2 class="templatemo-position-relative white-text">'+allProduct[i].counts+'</h2>'+
+            '<div class="view-img-btn-wrap" style="margin-left: -30px;">'+
+            '<button class="btn btn-primary delete-button" style="background-color: white; color: #0f0f0f; font-weight: bold" type="submit" onclick="productDetail('+allProduct[i].id+')">View</button>'+ '<button class="btn btn-primary delete-button" style="background-color: white; color: #0f0f0f; font-weight: bold" type="submit" onclick="deleteProduct('+allProduct[i].id+')">Delete</button>'+
+            '</div>'+
+            '</div>';
+        }
+        productArea.innerHTML+=html;
+    }
+    //列出所有商品
 
-      function getAllUsers() {
-          var allUsers = "";
-          var nothing = {};
-          $.ajax({
-              async : false, //设置同步
-              type : 'POST',
-              url : '${cp}/getAllUser',
-              data : nothing,
-              dataType : 'json',
-              success : function(result) {
-                  if (result!=null) {
-                      allUsers = result.allUsers;
-                  }
-                  else{
-                      layer.alert('查询所有用户错误');
-                  }
-              },
-              error : function(resoult) {
-                  layer.alert('查询所有用户错误');
-              }
-          });
-          allUsers = eval("("+allUsers+")");
-          return allUsers;
-      }
+    function getAllProducts() {
+        var allProducts = null;
+        var nothing = {};
+        $.ajax({
+            async : false, //设置同步
+            type : 'POST',
+            url : '${cp}/getAllProducts',
+            data : nothing,
+            dataType : 'json',
+            success : function(result) {
+                if (result!=null) {
+                    allProducts = result.allProducts;
+                }
+                else{
+                    layer.alert('Get Painting Information Failed');
+                }
+            },
+            error : function(resoult) {
+                layer.alert('Get Painting Information Failed');
+            }
+        });
+        allProducts = eval("("+allProducts+")");
+        return allProducts;
+    }
+
+    function deleteUser(id) {
+        var user = {};
+        user.id = id;
+        var deleteResult = "";
+        $.ajax({
+            async : false,
+            type : 'POST',
+            url : '${cp}/deleteUser',
+            data : user,
+            dataType : 'json',
+            success : function(result) {
+                deleteResult = result;
+            },
+            error : function(result) {
+                layer.alert('Get User Information Failed');
+            }
+        });
+        layer.msg(deleteResult.message);
+        listAllUser()
+    }
+
+    function deleteProduct(id) {
+        var product = {};
+        product.id = id;
+        var deleteResult = "";
+        $.ajax({
+            async : false,
+            type : 'POST',
+            url : '${cp}/deleteProduct',
+            data : product,
+            dataType : 'json',
+            success : function(result) {
+                deleteResult = result;
+            },
+            error : function(result) {
+                layer.alert('Delete Painting Failed');
+            }
+        });
+        layer.msg(deleteResult.message);
+        listAllProduct();
+    }
+
+    function addProduct() {
+        var loadings = layer.load(0);
+        var product = {};
+        product.name = document.getElementById("productName").value;
+        product.description = document.getElementById("productDescribe").value;
+        product.keyWord = document.getElementById("keyWord").value;
+        product.price = document.getElementById("productPrice").value;
+        product.counts = document.getElementById("productCount").value;
+        product.type = document.getElementById("productType").value;
+        var addResult="";
+        $.ajax({
+            async : false,
+            type : 'POST',
+            url : '${cp}/addProduct',
+            data : product,
+            dataType : 'json',
+            success : function(result) {
+                addResult = result.result;
+            },
+            error : function(result) {
+                layer.alert('Delete Painting Failed');
+            }
+        });
+        if(addResult == "success") {
+            fileUpload();
+            layer.msg('Add Painting Successful', {icon: 1, time: 1000});
+            layer.close(loadings)
+        }
+        listAllProduct();
+    }
+
+    function fileUpload() {
+        var results = "";
+        var name = document.getElementById("productName").value;
+        $.ajaxFileUpload({
+            url:'${cp}/uploadFile?name='+name,
+            secureuri:false ,
+            fileElementId:'productImgUpload',
+            type:'POST',
+            dataType : 'text',
+            success: function (result){
+                console.log(this.url)
+                result = result.replace(/<pre.*?>/g, '');  //ajaxFileUpload会对服务器响应回来的text内容加上<pre style="....">text</pre>前后缀
+                result = result.replace(/<PRE.*?>/g, '');
+                result = result.replace("<PRE>", '');
+                result = result.replace("</PRE>", '');
+                result = result.replace("<pre>", '');
+                result = result.replace("</pre>", '');
+                result = JSON.parse(result);
+                results = result.result;
+                if(results == "success") {
+                    layer.msg("Painting Upload Successful", {icon: 1});
+                    window.location.href = "${cp}/control";
+                    //var imgPreSee = document.getElementById("imgPreSee");
+                    //var imgSrc = '${cp}/img/'+name+'.jpg';
+                    //imgPreSee.innerHTML +='<img src="'+imgSrc+')" class="col-sm-12 col-md-12 col-lg-12"/>';
+                }
+                else {
+                    layer.msg("Painting Upload Failed", {icon: 0});
+                }
+
+            },
+            error: function ()
+            {
+                layer.alert("Error");
+            }}
+        );
+    }
+</script>
 
 
-      function listAllProduct() {
-          var productArea = document.getElementById("productArea");
-          var allProduct = getAllProducts();
-          var html="";
-          productArea.innerHTML = '';
-          for(var i=0;i<allProduct.length;i++){
-              var imgURL = "${cp}/img/"+allProduct[i].id+".jpg";
-              html+='<div class="col-sm-4 col-md-4 pd-5">'+
-                      '<div class="boxes">'+
-                      '<div class="big bigimg">'+
-                      '<img src="'+imgURL+'">'+
-                      '</div>'+
-                      '<p class="font-styles center">'+allProduct[i].name+'</p>'+
-                      '<p class="pull-right">价格：'+allProduct[i].price+'</p>'+
-                      '<p class="pull-left">库存：'+allProduct[i].counts+'</p>'+
-                      '<div class = "row">'+
-                      '<button class="btn btn-primary delete-button" type="submit" onclick="deleteProduct('+allProduct[i].id+')">删除商品</button>'+
-                      '</div>'+
-                      '</div>'+
-                      '</div>';
-          }
-          productArea.innerHTML+=html;
-      }
-      //列出所有商品
-
-      function getAllProducts() {
-          var allProducts = null;
-          var nothing = {};
-          $.ajax({
-              async : false, //设置同步
-              type : 'POST',
-              url : '${cp}/getAllProducts',
-              data : nothing,
-              dataType : 'json',
-              success : function(result) {
-                  if (result!=null) {
-                      allProducts = result.allProducts;
-                  }
-                  else{
-                      layer.alert('查询所有商品错误');
-                  }
-              },
-              error : function(resoult) {
-                  layer.alert('查询所有商品错误');
-              }
-          });
-          allProducts = eval("("+allProducts+")");
-          return allProducts;
-      }
-
-      function deleteUser(id) {
-          var user = {};
-          user.id = id;
-          var deleteResult = "";
-          $.ajax({
-              async : false,
-              type : 'POST',
-              url : '${cp}/deleteUser',
-              data : user,
-              dataType : 'json',
-              success : function(result) {
-                  deleteResult = result;
-              },
-              error : function(result) {
-                  layer.alert('查询用户错误');
-              }
-          });
-          layer.msg(deleteResult.message);
-          listAllUser()
-      }
-
-      function deleteProduct(id) {
-          var product = {};
-          product.id = id;
-          var deleteResult = "";
-          $.ajax({
-              async : false,
-              type : 'POST',
-              url : '${cp}/deleteProduct',
-              data : product,
-              dataType : 'json',
-              success : function(result) {
-                  deleteResult = result;
-              },
-              error : function(result) {
-                  layer.alert('删除商品错误');
-              }
-          });
-          layer.msg(deleteResult.message);
-          listAllProduct();
-      }
-      
-      function addProduct() {
-          var loadings = layer.load(0);
-          var product = {};
-          product.name = document.getElementById("productName").value;
-          product.description = document.getElementById("productDescribe").value;
-          product.keyWord = document.getElementById("keyWord").value;
-          product.price = document.getElementById("productPrice").value;
-          product.counts = document.getElementById("productCount").value;
-          product.type = document.getElementById("productType").value;
-          var addResult="";
-          $.ajax({
-              async : false,
-              type : 'POST',
-              url : '${cp}/addProduct',
-              data : product,
-              dataType : 'json',
-              success : function(result) {
-                  addResult = result.result;
-              },
-              error : function(result) {
-                  layer.alert('删除商品错误');
-              }
-          });
-          if(addResult == "success") {
-              fileUpload();
-              layer.msg('添加商品成功', {icon: 1, time: 1000});
-              layer.close(loadings)
-          }
-          listAllProduct();
-      }
-      
-      function fileUpload() {
-          var results = "";
-          var name = document.getElementById("productName").value;
-          $.ajaxFileUpload({
-              url:'${cp}/uploadFile?name='+name,
-              secureuri:false ,
-              fileElementId:'productImgUpload',
-              type:'POST',
-              dataType : 'text',
-              success: function (result){
-                  result = result.replace(/<pre.*?>/g, '');  //ajaxFileUpload会对服务器响应回来的text内容加上<pre style="....">text</pre>前后缀
-                  result = result.replace(/<PRE.*?>/g, '');
-                  result = result.replace("<PRE>", '');
-                  result = result.replace("</PRE>", '');
-                  result = result.replace("<pre>", '');
-                  result = result.replace("</pre>", '');
-                  result = JSON.parse(result);
-                  results = result.result;
-                  if(results == "success") {
-                      layer.msg("图片上传成功", {icon: 1});
-                      window.location.href = "${cp}/control";
-                      //var imgPreSee = document.getElementById("imgPreSee");
-                      //var imgSrc = '${cp}/img/'+name+'.jpg';
-                      //imgPreSee.innerHTML +='<img src="'+imgSrc+')" class="col-sm-12 col-md-12 col-lg-12"/>';
-                  }
-                  else {
-                      layer.msg("图片上传失败", {icon: 0});
-                  }
-
-              },
-              error: function ()
-              {
-                  layer.alert("上传错误");
-              }}
-          );
-      }
-  </script>
-  </body>
+</body>
 </html>
