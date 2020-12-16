@@ -187,27 +187,27 @@
             if(document.getElementById("woman").checked)
                 user.sex = 1;
             if(user.userName == ''){
-                layer.msg('用户名不能为空',{icon:2});
+                layer.msg('Username is Empty',{icon:2});
                 return;
             }
             else if(user.userName.length >= 12){
-                layer.msg('用户名长度不能超过12个字符',{icon:2});
+                layer.msg('Username Cannot Exceed 12 Characters',{icon:2});
                 return;
             }
             if(user.nickName == ''){
-                layer.msg('昵称不能为空',{icon:2});
+                layer.msg('Nickname is Empty',{icon:2});
                 return;
             }
             else if(user.nickName.length >= 15){
-                layer.msg('用户名长度不能超过15个字符',{icon:2});
+                layer.msg('Nickname Cannot Exceed 15 Characters',{icon:2});
                 return;
             }
             else if(user.password == ''){
-                layer.msg('密码不能为空',{icon:2});
+                layer.msg('Password is Empty',{icon:2});
                 return;
             }
             else if(user.password.length>= 20){
-                layer.msg('密码长度不能超过20个字符',{icon:2});
+                layer.msg('Password cannot Exceed 20 Characters',{icon:2});
                 return;
             }
             var registerResult = null;
@@ -221,25 +221,25 @@
                     registerResult = result.result;
                 },
                 error : function(result) {
-                    layer.alert('查询用户错误');
+                    layer.alert('Cannot Find User');
                 }
             });
             if(registerResult == 'success'){
                 layer.close(loading);
-                layer.msg('注册成功',{icon:1});
+                layer.msg('Registered Successful',{icon:1});
                 window.location.href="${cp}/login";
             }
             else if(registerResult == 'nameExist'){
                 layer.close(loading);
-                layer.msg('这个用户名已经被占用啦！',{icon:2});
+                layer.msg('This Username Has Already Been Used',{icon:2});
             }
             else if(registerResult == 'emailExist'){
                 layer.close(loading);
-                layer.msg('这个用户名已经注册啦！',{icon:2});
+                layer.msg('This Email Has Already Been Used！',{icon:2});
             }
             else if(registerResult == 'fail'){
                 layer.close(loading);
-                layer.msg('服务器异常',{icon:2});
+                layer.msg('Server exception',{icon:2});
             }
         }
     </script>

@@ -107,6 +107,7 @@
         if(searchResult == "success")
             window.location.href = "${cp}/search";
     }
+
     function re(){
         window.location.href = "${cp}/register";
     }

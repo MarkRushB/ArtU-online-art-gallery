@@ -66,7 +66,9 @@
             <ul>
                 <li><a href="#s1"><i class="fa fa-user fa-fw"></i>Manager User</a></li>
                 <li><a href="#s2"><i class="fa fa-dashboard fa-fw"></i>Add Art</a></li>
-                <li><a href=""><i class="fa fa-desktop fa-fw"></i>Manage Art</a></li>
+                <li><a href="#s3"><i class="fa fa-desktop fa-fw"></i>Manage Art</a></li>
+                <li><a href="main"><i class="fa fa-home fa-fw"></i>Home Page</a></li>
+                <li><a href="doLogout"><i class="fa fa-desktop fa-fw"></i>Sign Out</a></li>
             </ul>
         </nav>
     </div>
@@ -153,7 +155,7 @@
 
             </div>
 
-            <div class="panel-heading"><h2 class="text-uppercase"><a name="s23">Add Art</a></h2></div>
+            <div class="panel-heading"><h2 class="text-uppercase"><a name="s3">Add Art</a></h2></div>
             <div id="productArea" style="margin-right: -30%">
                 <%--                <div class="templatemo-content-widget white-bg col-md-4 templatemo-position-relative templatemo-content-img-bg">--%>
                 <%--                    <img src="images/sunset-big.jpg" alt="Sunset" class="img-responsive content-bg-img">--%>
@@ -272,9 +274,9 @@
             '<div class="templatemo-content-widget white-bg col-md-3 templatemo-position-relative templatemo-content-img-bg">'+
             '<img src="'+imgURL+'" alt="Sunset" class="img-responsive content-bg-img">'+
             '<i class="fa fa-heart"></i>'+
-            '<h2 class="templatemo-position-relative white-text">'+'<b>'+"Painting Name:"+'</b>'+allProduct[i].name+'</h2>'+
-            '<h2 class="templatemo-position-relative white-text">'+allProduct[i].price+'</h2>'+
-            '<h2 class="templatemo-position-relative white-text">'+allProduct[i].counts+'</h2>'+
+            '<h2 class="templatemo-position-relative white-text">'+'<b>'+allProduct[i].name+'</b></h2></br>'+
+            '<h2 class="templatemo-position-relative white-text" style="font-size: 13px">'+'<b>'+"Artwork Price: "+'</b>'+allProduct[i].price+'</h2>'+
+            '<h2 class="templatemo-position-relative white-text" style="font-size: 13px">'+'<b>'+"Amount: "+'</b>'+allProduct[i].counts+'</h2>'+
             '<div class="view-img-btn-wrap" style="margin-left: -30px;">'+
             '<button class="btn btn-primary delete-button" style="background-color: white; color: #0f0f0f; font-weight: bold" type="submit" onclick="productDetail('+allProduct[i].id+')">View</button>'+ '<button class="btn btn-primary delete-button" style="background-color: white; color: #0f0f0f; font-weight: bold" type="submit" onclick="deleteProduct('+allProduct[i].id+')">Delete</button>'+
             '</div>'+
