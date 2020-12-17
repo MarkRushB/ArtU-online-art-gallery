@@ -178,7 +178,7 @@
                         '<td>'+allShoppingRecords[i].time+'</td>'+
                         '<td>'+orderArray[allShoppingRecords[i].orderStatus]+'</td>'+
                         '<td>'+
-                        '<button class="btn btn-primary btn-sm" onclick="productDetail('+allShoppingRecords[i].productId+')">评价</button>'+
+                        '<button class="btn btn-primary btn-sm" onclick="productDetail('+allShoppingRecords[i].productId+')">Comment</button>'+
                         '</td>'+
                         '</tr>';
                 receiveCounts++;

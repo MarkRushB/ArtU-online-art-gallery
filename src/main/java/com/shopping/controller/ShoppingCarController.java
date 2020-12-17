@@ -30,7 +30,7 @@ public class ShoppingCarController {
     @RequestMapping(value = "/addShoppingCar",method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> addShoppingCar(int userId,int productId,int counts){
-        System.out.println("数量为"+counts);
+        System.out.println("amount is"+counts);
         ShoppingCar shoppingCar = shoppingCarService.getShoppingCar(userId,productId);
         if(shoppingCar == null){
             ShoppingCar shoppingCar1 = new ShoppingCar();
@@ -47,7 +47,7 @@ public class ShoppingCarController {
         }
         Map<String, Object> resultMap = new HashMap<String,Object>();
         resultMap.put("result","success");
-        System.out.println("我返回了");
+        System.out.println("return");
         return resultMap;
     }
 
@@ -67,7 +67,7 @@ public class ShoppingCarController {
         shoppingCarService.deleteShoppingCar(userId,productId);
         Map<String, Object> resultMap = new HashMap<String,Object>();
         resultMap.put("result","success");
-        System.out.println("我返回了");
+        System.out.println("return");
         return resultMap;
     }
 }

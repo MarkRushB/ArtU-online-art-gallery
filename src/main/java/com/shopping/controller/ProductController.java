@@ -51,7 +51,7 @@ public class ProductController {
     @RequestMapping(value = "/addProduct", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> addProduct(String name,String description,String keyWord,int price,int counts,int type) {
-        System.out.println("添加了商品："+name);
+        System.out.println("I added painting："+name);
         String result ="fail";
         Product product = new Product();
         product.setName(name);
@@ -102,13 +102,13 @@ public class ProductController {
     @RequestMapping(value = "/searchProduct", method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> searchProduct(String searchKeyWord){
-        System.out.println("我到了SearchProduct"+searchKeyWord);
+        System.out.println("Here is SearchProduct"+searchKeyWord);
         List<Product> productList = new ArrayList<Product>();
         productList = productService.getProductsByKeyWord(searchKeyWord);
         String searchResult = JSONArray.toJSONString(productList);
         Map<String,Object> resultMap = new HashMap<String,Object>();
         resultMap.put("result",searchResult);
-        System.out.println("我返回了"+searchResult);
+        System.out.println("I returned "+searchResult);
         return resultMap;
     }
 

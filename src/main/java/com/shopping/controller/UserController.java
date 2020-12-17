@@ -64,7 +64,7 @@ public class UserController {
     @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> doLogin(String userNameOrEmail, String password, HttpSession httpSession) {
-        System.out.println("我接收到了登录请求" + userNameOrEmail + " " + password);
+        System.out.println("I got login request" + userNameOrEmail + " " + password);
         String result = "fail";
         User user = userService.getUser(userNameOrEmail);
         if (user == null)
@@ -160,7 +160,7 @@ public class UserController {
         return resultMap;
     }
 
-    //2018.04.08 修改BUG 这种方法为前后端交互推荐写法
+
     @RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
     @ResponseBody
     public Response deleteUser(int id) {
