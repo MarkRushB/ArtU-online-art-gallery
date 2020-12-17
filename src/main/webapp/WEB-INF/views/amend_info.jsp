@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>购物+</title>
+    <title>ArtU</title>
     <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${cp}/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="${cp}/signup/fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -23,10 +23,10 @@
     <![endif]-->
 </head>
 <body>
-<!--导航栏部分-->
+
 <jsp:include page="include/header.jsp"/>
 
-<!-- 中间内容 -->
+
 <div class="main">
 
     <!-- Sign up form -->
@@ -165,7 +165,7 @@
 <%--    </div>--%>
 <%--</div>--%>
 
-<!--尾部-->
+
 <jsp:include page="include/foot.jsp"/>
 <script src="${cp}/signup/vendor/jquery/jquery.min.js"></script>
 <script src="${cp}/signup/js/main.js"></script>
@@ -203,32 +203,32 @@
         if(document.getElementById("woman").checked)
             user.sex = 1;
         if(user.userName == ''){
-            layer.msg('用户名不能为空',{icon:2});
+            layer.msg('Username is Empty',{icon:2});
             return;
         }
         else if(user.userName.length >= 12){
-            layer.msg('用户名长度不能超过12个字符',{icon:2});
+            layer.msg('Username Cannot Exceed 12 Characters',{icon:2});
             return;
         }
         if(user.nickName == ''){
-            layer.msg('昵称不能为空',{icon:2});
+            layer.msg('Nickname is Empty',{icon:2});
             return;
         }
         else if(user.nickName.length >= 15){
-            layer.msg('用户名长度不能超过15个字符',{icon:2});
+            layer.msg('Nickname Cannot Exceed 15 Characters',{icon:2});
             return;
         }
         else if(user.password == ''){
-            layer.msg('密码不能为空',{icon:2});
+            layer.msg('Password is Empty',{icon:2});
             return;
         }
         else if(user.password.length>= 20){
-            layer.msg('密码长度不能超过20个字符',{icon:2});
+            layer.msg('Password cannot Exceed 20 Characters',{icon:2});
             return;
         }
         var registerResult = null;
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/doUpdate',
             data : user,
@@ -237,16 +237,16 @@
                 registerResult = result.result;
             },
             error : function(result) {
-                layer.alert('查询用户错误');
+                layer.alert('Cannot Find User');
             }
         });
         if(registerResult == 'success'){
             layer.close(loading);
-            layer.msg('修改成功',{icon:1});
+            layer.msg('Update Successful',{icon:1});
             window.location.href="${cp}/main";
         }
         else if(registerResult == 'fail'){
-            layer.msg('服务器异常',{icon:2});
+            layer.msg('Server exception',{icon:2});
         }
     }
 
@@ -255,7 +255,7 @@
         var user = {};
         user.id = id;
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/getUserById',
             data : user,
@@ -276,7 +276,7 @@
         var user = {};
         user.id = id;
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/getUserDetailById',
             data : user,

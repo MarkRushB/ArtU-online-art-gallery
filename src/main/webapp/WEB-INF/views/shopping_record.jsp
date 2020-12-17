@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>购物+</title>
+    <title>ArtU</title>
     <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${cp}/css/style.css" rel="stylesheet">
 
@@ -21,10 +21,10 @@
     <![endif]-->
 </head>
 <body>
-<!--导航栏部分-->
+
 <jsp:include page="include/header.jsp"/>
 
-<!-- 中间内容 -->
+
 <div class="container-fluid bigHead">
     <div class="row">
         <div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
@@ -64,7 +64,7 @@
         </div>
     </div>
 </div>
-<!-- 尾部 -->
+
 <jsp:include page="include/foot.jsp"/>
 
 <script type="text/javascript">
@@ -243,7 +243,7 @@
         var user = {};
         user.userId = ${currentUser.id};
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/getShoppingRecords',
             data : user,
@@ -252,7 +252,7 @@
                 shoppingRecordProducts = result.result;
             },
             error : function(result) {
-                layer.alert('查询错误');
+                layer.alert('Get Information Failed');
             }
         });
         shoppingRecordProducts = eval("("+shoppingRecordProducts+")");
@@ -264,7 +264,7 @@
         var product = {};
         product.id = id;
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/getProductById',
             data : product,
@@ -273,7 +273,7 @@
                 productResult = result.result;
             },
             error : function(result) {
-                layer.alert('查询错误');
+                layer.alert('Get Information Failed');
             }
         });
         productResult = JSON.parse(productResult);
@@ -285,7 +285,7 @@
         var user = {};
         user.id = id;
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/getUserAddressAndPhoneNumber',
             data : user,
@@ -294,7 +294,7 @@
                 address = result.address;
             },
             error : function(result) {
-                layer.alert('查询错误');
+                layer.alert('Get Information Failed');
             }
         });
         return address;
@@ -305,7 +305,7 @@
         var user = {};
         user.id = id;
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/getUserAddressAndPhoneNumber',
             data : user,
@@ -314,7 +314,7 @@
                 phoneNumber = result.phoneNumber;
             },
             error : function(result) {
-                layer.alert('查询错误');
+                layer.alert('Get Information Failed');
             }
         });
         return phoneNumber;
@@ -333,7 +333,7 @@
         shoppingRecord.time = time;
         shoppingRecord.orderStatus = 2;
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/changeShoppingRecord',
             data : shoppingRecord,
@@ -342,7 +342,7 @@
                 receiveResult = result.result;
             },
             error : function(result) {
-                layer.alert('查询错误');
+                layer.alert('Get Information Failed');
             }
         });
         if(receiveResult = "success")
@@ -354,7 +354,7 @@
         var jumpResult = '';
         product.id = id;
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/productDetail',
             data : product,
@@ -363,7 +363,7 @@
                 jumpResult = result.result;
             },
             error : function(resoult) {
-                layer.alert('查询错误');
+                layer.alert('Get Information Failed');
             }
         });
 

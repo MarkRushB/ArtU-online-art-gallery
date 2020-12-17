@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>购物+</title>
+      <title>ArtU</title>
       <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
       <link href="${cp}/css/style.css" rel="stylesheet">
 
@@ -24,10 +24,9 @@
     <![endif]-->
   </head>
   <body>
-    <!--导航栏部分-->
+
     <jsp:include page="include/header.jsp"/>
 
-    <!-- 中间内容 -->
     <div class="main">
 
         <!-- Sign up form -->
@@ -169,7 +168,7 @@
 
     <script src="${cp}/signup/vendor/jquery/jquery.min.js"></script>
     <script src="${cp}/signup/js/main.js"></script>
-    <!--尾部-->
+
     <jsp:include page="include/foot.jsp"/>
     <script type="text/javascript">
         function startRegister() {
@@ -212,7 +211,7 @@
             }
             var registerResult = null;
             $.ajax({
-                async : false, //设置同步
+                async : false,
                 type : 'POST',
                 url : '${cp}/doRegister',
                 data : user,
@@ -239,7 +238,7 @@
             }
             else if(registerResult == 'fail'){
                 layer.close(loading);
-                layer.msg('Server exception',{icon:2});
+                layer.msg('Server Exception',{icon:2});
             }
         }
     </script>

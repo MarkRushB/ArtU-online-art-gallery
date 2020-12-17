@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>购物+</title>
+      <title>ArtU</title>
       <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
       <link href="${cp}/css/style.css" rel="stylesheet">
 
@@ -24,7 +24,7 @@
     <![endif]-->
   </head>
   <body>
-    <!--导航栏部分-->
+
     <jsp:include page="include/header.jsp"/>
 
 
@@ -88,7 +88,7 @@
 <%--        </div>--%>
 <%--    </div>--%>
 
-    <!--尾部-->
+
     <script src="${cp}/signup/vendor/jquery/jquery.min.js"></script>
     <script src="${cp}/signup/js/main.js"></script>
     <jsp:include page="include/foot.jsp"/>
@@ -113,24 +113,24 @@
                     layer.close(loading);
                 },
                 error : function(result) {
-                    layer.alert('查询用户错误');
+                    layer.alert('Get User Information Failed');
                 }
             });
 
 
             if(loginResult === 'success'){
                 console.log(loginResult,'123');
-                layer.msg('登录成功',{icon:1});
+                layer.msg('Login Sucessful',{icon:1});
                 window.location='http://localhost:8080/ArtU/main';
             }
             else if(loginResult == 'unexist'){
-                layer.msg('是不是用户名记错了？',{icon:2});
+                layer.msg('Username is invalid',{icon:2});
             }
             else if(loginResult == 'wrong'){
-                layer.msg('密码不对哦，再想想~',{icon:2});
+                layer.msg('Password is invalid',{icon:2});
             }
             else if(loginResult == 'fail'){
-                layer.msg('服务器异常',{icon:2});
+                layer.msg('Server Exception',{icon:2});
             }
 
         }

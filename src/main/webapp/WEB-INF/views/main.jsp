@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Sentra - Free Bootstrap Theme 123</title>
+    <title>ArtU</title>
 
     <!--
 
@@ -393,7 +393,7 @@
         var allProducts = null;
         var nothing = {};
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/getAllProducts',
             data : nothing,
@@ -403,14 +403,14 @@
                     allProducts = result.allProducts;
                 }
                 else{
-                    layer.alert('查询错误');
+                    layer.alert('Get Information Failed');
                 }
             },
             error : function(resoult) {
-                layer.alert('查询错误');
+                layer.alert('Get Information Failed');
             }
         });
-        //划重点划重点，这里的eval方法不同于prase方法，外面加括号
+
         allProducts = eval("("+allProducts+")");
         return allProducts;
     }
@@ -420,7 +420,7 @@
         var jumpResult = '';
         product.id = id;
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/productDetail',
             data : product,
@@ -429,7 +429,7 @@
                 jumpResult = result.result;
             },
             error : function(resoult) {
-                layer.alert('查询错误');
+                layer.alert('Get Information Failed');
             }
         });
 

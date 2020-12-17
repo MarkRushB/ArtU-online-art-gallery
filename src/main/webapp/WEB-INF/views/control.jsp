@@ -181,7 +181,7 @@
         var jumpResult = '';
         product.id = id;
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/productDetail',
             data : product,
@@ -204,7 +204,7 @@
     listAllUser();
     listAllProduct();
     layer.close(loading);
-    //列出所有用户
+
     function listAllUser() {
         var userTable = document.getElementById("userTable");
         var allUser = getAllUsers();
@@ -240,7 +240,7 @@
         var allUsers = "";
         var nothing = {};
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/getAllUser',
             data : nothing,
@@ -284,13 +284,13 @@
         }
         productArea.innerHTML+=html;
     }
-    //列出所有商品
+
 
     function getAllProducts() {
         var allProducts = null;
         var nothing = {};
         $.ajax({
-            async : false, //设置同步
+            async : false,
             type : 'POST',
             url : '${cp}/getAllProducts',
             data : nothing,

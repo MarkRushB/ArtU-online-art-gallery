@@ -5,11 +5,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <!--假装我是代码，代码一定要对齐，对齐，对齐！-->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>购物+</title>
+    <title>ArtU</title>
     <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${cp}/css/style.css" rel="stylesheet">
 
@@ -21,7 +21,7 @@
     <![endif]-->
 </head>
 <body>
-<!--导航栏部分-->
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -101,7 +101,7 @@
                 searchResult = result.result;
             },
             error : function(result) {
-                layer.alert('查询错误');
+                layer.alert('Search Failed');
             }
         });
         if(searchResult == "success")

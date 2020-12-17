@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Search</title>
+    <title>ArtU</title>
 	  <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
 	  <link href="${cp}/css/style.css" rel="stylesheet">
 
@@ -25,18 +25,26 @@
 
   </head>
   <body>
-    <!--导航栏部分-->
+
 	<jsp:include page="include/header.jsp"/>
 
-	<!-- 中间内容 -->
+
 
 	<div class="tm-hero d-flex justify-content-center align-items-center" style="background-attachment: scroll; background-image: url(${cp}/search/img/1.jpg);background-size: 100% 100%" >
 		<div class="d-flex tm-search-form">
 			<input class="form-control tm-search-input" type="text" placeholder="Search" aria-label="Search" id="newSearchKeyWord">
-			<button class="btn btn-outline-success tm-search-btn" onclick="searchPre()">
+			<button class="btn btn-outline-success tm-search-btn" id="click" onclick="searchPre()">
 				<i class="fas fa-search"></i>
 			</button>
+			<ul class="show" id="show"
+				style="position: absolute;
+				margin-top: 55px;
+				background-color: rgba(116,116,116,0.7);
+				width: 360px; list-style: none;
+				border-radius: 10px">
+			</ul>
 		</div>
+
 	</div>
 
 <%--	<div class="container">--%>
@@ -59,8 +67,6 @@
 
 
 
-<%--	</div>--%>
-	<!-- 尾部 -->
 	<jsp:include page="include/foot.jsp"/>
 
 
@@ -120,7 +126,7 @@
 					  searchResult = result.result;
 				  },
 				  error : function() {
-					  layer.alert('查询错误');
+					  layer.alert('Get Information Failed');
 				  }
 			  });
 			  searchResult = eval("("+searchResult+")");
@@ -132,7 +138,7 @@
 			  var jumpResult = '';
 			  product.id = id;
 			  $.ajax({
-				  async : false, //设置同步
+				  async : false,
 				  type : 'POST',
 				  url : '${cp}/productDetail',
 				  data : product,
@@ -141,7 +147,7 @@
 					  jumpResult = result.result;
 				  },
 				  error : function() {
-					  layer.alert('查询错误');
+					  layer.alert('Get Information Failed');
 				  }
 			  });
 
@@ -149,6 +155,40 @@
 				  window.location.href = "${cp}/product_detail";
 			  }
 		  }
+
+		  $("#newSearchKeyWord").keydown(function (){
+			  let searchWord = $("#newSearchKeyWord").val();
+			  console.log(searchWord);
+			  if(searchWord === null || searchWord === ""){
+				  $("#show").empty();
+				  return;
+			  }
+			  var searchKeyWord = document.getElementById("newSearchKeyWord").value;
+			  var searchResultArea = document.getElementById("show");
+			  var searchResult = search(searchKeyWord);
+			  var html = "";
+			  var len = searchResult.length;
+			  searchResultArea.innerHTML = "";
+			  if(len < 6){
+				  for(var i=0;i<searchResult.length;i++){
+					  html+= '<li style="line-height: 35px; color: white; font-weight: bold; cursor: pointer" onclick="getSelect(this)">'+searchResult[i].name+'</li>';
+				  }
+			  }else{
+				  for(var i=0;i <= 5;i++){
+					  html+= '<li style="line-height: 35px; color: white; font-weight: bold; cursor: pointer" onclick="getSelect(this)">'+searchResult[i].name+'</li>';
+				  }
+			  }
+
+			  searchResultArea.innerHTML += html;
+		  });
+
+		  function getSelect(obj){
+		  	var select = $(obj).text();
+		  	$("#newSearchKeyWord").val(select);
+		  	document.getElementById("click").click();
+
+		  }
 	  </script>
+
 	  </body>
 </html>

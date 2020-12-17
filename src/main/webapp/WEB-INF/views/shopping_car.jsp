@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>购物+</title>
+    <title>ArtU</title>
 	  <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
 	  <link href="${cp}/css/style.css" rel="stylesheet">
 
@@ -21,10 +21,10 @@
     <![endif]-->
   </head>
   <body>
-    <!--导航栏部分-->
+
 	<jsp:include page="include/header.jsp"/>
 
-	<!-- 中间内容 -->
+
 	<div class="container-fluid bigHead">
 		<div class="row">
 			<div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- 尾部 -->
+
 	<jsp:include page="include/foot.jsp"/>
 
 	<script type="text/javascript">
@@ -95,7 +95,7 @@
 					shoppingCarProducts = result.result;
 				},
 				error : function(result) {
-					layer.alert('查询错误');
+					layer.alert('Get Information Failed');
 				}
 			});
 			shoppingCarProducts = eval("("+shoppingCarProducts+")");
@@ -137,7 +137,7 @@
 					productResult = result.result;
 				},
 				error : function(result) {
-					layer.alert('查询错误');
+					layer.alert('Get Information Failed');
 				}
 			});
 			productResult = JSON.parse(productResult);
@@ -194,7 +194,7 @@
 					'</div>';
 			layer.open({
 				type:1,
-				title:'请确认订单信息：',
+				title:'Please Confirm Order Information：',
 				content:html,
 				area:['650px','350px'],
 			});
@@ -206,7 +206,7 @@
 			var user = {};
 			user.id = id;
 			$.ajax({
-				async : false, //设置同步
+				async : false,
 				type : 'POST',
 				url : '${cp}/getUserAddressAndPhoneNumber',
 				data : user,
@@ -215,7 +215,7 @@
 					address = result.address;
 				},
 				error : function(result) {
-					layer.alert('查询错误');
+					layer.alert('Get Information Failed');
 				}
 			});
 			return address;
@@ -227,7 +227,7 @@
 			var user = {};
 			user.id = id;
 			$.ajax({
-				async : false, //设置同步
+				async : false,
 				type : 'POST',
 				url : '${cp}/getUserAddressAndPhoneNumber',
 				data : user,
@@ -236,7 +236,7 @@
 					phoneNumber = result.phoneNumber;
 				},
 				error : function(result) {
-					layer.alert('查询错误');
+					layer.alert('Get Information Failed');
 				}
 			});
 			return phoneNumber;
@@ -273,16 +273,16 @@
 					buyResult = result.result;
 				},
 				error : function(result) {
-					layer.alert('购买错误');
+					layer.alert('Purchase Failed');
 				}
 			});
 			var product = getProductById(productId);
 			if(buyResult == "success") {
                 deleteShoppingCar(productId);
-				layer.msg("商品 "+product.name+" 购买成功",{icon:1});
+				layer.msg("Artwork "+product.name+" Purchase Successsful",{icon:1});
 			}
 			else if(buyResult == "unEnough"){
-				layer.alert("商品 "+product.name+" 库存不足，购买失败")
+				layer.alert("Artwork "+product.name+" Insufficient Inventory, Purchase Failed")
 			}
 		}
 
@@ -301,7 +301,7 @@
                     deleteResult = result.result;
                 },
                 error : function(result) {
-                    layer.alert('查询用户错误');
+                    layer.alert('Get User Information Failed');
                 }
             });
         }
