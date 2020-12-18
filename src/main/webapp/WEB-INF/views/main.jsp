@@ -162,9 +162,6 @@
                     <div>
                         <h1>Water Lilies</h1>
                         <p>Claude Monet (1840-1926)</p>
-                        <div class="white-button button">
-                            <a href="#featured">Discover More</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -178,10 +175,6 @@
                     <div>
                         <h1>Office in a Small City</h1>
                         <p>Edward Hopper (1882-1967)</p>
-
-                        <div class="white-button button">
-                            <a href="#featured">Share More</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -195,10 +188,6 @@
                     <div>
                         <h1>Almond Blossom</h1>
                         <p>Vincent van Gogh (1853-1890)</p>
-
-                        <div class="white-button button">
-                            <a href="#featured">Learn More</a>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -212,6 +212,7 @@
         '<thead>'+
         '<tr>'+
         '<td><a href="" class="white-text templatemo-sort-by">User ID</a></td>'+
+        '<td><a href="" class="white-text templatemo-sort-by">Role</a></td>'+
         '<td><a href="" class="white-text templatemo-sort-by">User Name</a></td>'+
         '<td><a href="" class="white-text templatemo-sort-by">NickName</a></td>'+
         '<td><a href="" class="white-text templatemo-sort-by">Email</a></td>'+
@@ -224,6 +225,7 @@
                 '<tbody>'+
                 '<tr>'+
                 '<td>'+allUser[i].id+'</td>'+
+                '<td id="role'+i+'"></td>'+
                 '<td>'+allUser[i].name+'</td>'+
                 '<td>'+allUser[i].nickName+'</td>'+
                 '<td>'+allUser[i].email+'</td>'+
@@ -234,6 +236,24 @@
                 '</tbody>';
         }
         userTable.innerHTML += html;
+    }
+    window.onload = function (){
+        var allUser = getAllUsers();
+        console.log(allUser)
+        for(var i=0;i<allUser.length;i++) {
+            var role = allUser[i].role;
+            var f = "#role" + i;
+            console.log(f)
+            console.log(role)
+            switch (role) {
+                case 0 :
+                    $(f).text("User");
+                    break;
+                case 1 :
+                    $(f).text("Admin");
+                    break;
+            }
+        }
     }
 
     function getAllUsers() {

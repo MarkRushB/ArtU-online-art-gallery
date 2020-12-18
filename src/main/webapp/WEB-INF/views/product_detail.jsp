@@ -109,7 +109,6 @@
                 </section>
 
         <div class="row">
-
             <div class="col-md-8 col-md-offset-2 ">
                 <h3 align="center"><b style="color: rgba(83,91,160,0.82)">Comment Here!</b></h3>
                 <h6 align="center" style="color: #5a6268">Communicate with worldwide artists</h6>
@@ -448,21 +447,28 @@
           var addResult = "";
           $.ajax({
               async : false,
-              type : 'POST',
+              type : 'GET',
               url : '${cp}/addShoppingEvaluation',
               data : evaluation,
               dataType : 'json',
               success : function(result) {
                   addResult = result.result;
+                  console.log(addResult)
               },
               error : function(result) {
                   layer.alert('Get User Information Failed');
               }
           });
-          if(addResult = "success"){
+          if(addResult == "success"){
+              console.log("test1")
               layer.msg("Post Successful",{icon:1});
               window.location.href = "${cp}/product_detail";
+          }else if(addResult == "unsafeComment"){
+              console.log("test2")
+              layer.msg("Unsafe Comment",{icon:2});
+              <%--window.location.href = "${cp}/product_detail";--%>
           }
+
       }
       window.onload = function (){
           var creator = ${productDetail.type};

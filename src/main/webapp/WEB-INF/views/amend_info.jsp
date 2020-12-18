@@ -79,7 +79,7 @@
                             <input type="text" name="re_pass" id="address" placeholder="Address"/>
                         </div>
                         <div class="form-group form-button">
-                            <input type="submit" name="signup" id="signup" class="form-submit" value="Register" onclick="startRegister()"/>
+                            <input type="button" name="signup" id="signup" class="form-submit" value="Register" onclick="startRegister()"/>
                         </div>
                     </form>
                 </div>

@@ -78,7 +78,7 @@
                                 <input type="text" name="re_pass" id="address" placeholder="Address"/>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" onclick="startRegister()"/>
+                                <input type="button" name="signup" id="signup" class="form-submit" value="Register" onclick="startRegister()"/>
                             </div>
                         </form>
                     </div>
@@ -89,83 +89,6 @@
             </div>
         </section>
     </div>
-
-
-<%--    <div class="container-fluid">--%>
-<%--        <h1 class="title center">注册</h1>--%>
-<%--        <br/>--%>
-<%--        <div class="col-sm-offset-2 col-md-offest-2">--%>
-<%--            <!-- 表单输入 -->--%>
-<%--            <div  class="form-horizontal">--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="inputEmail" class="col-sm-2 col-md-2 control-label">用户名</label>--%>
-<%--                    <div class="col-sm-6 col-md-6">--%>
-<%--                        <input type="text" class="form-control" id="inputUserName" placeholder="请输入数字"/>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="inputEmail" class="col-sm-2 col-md-2 control-label">邮箱</label>--%>
-<%--                    <div class="col-sm-6 col-md-6">--%>
-<%--                        <input type="email" class="form-control" id="inputEmail" placeholder="请输入正确的邮箱格式"/>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="inputNickname" class="col-sm-2 col-md-2 control-label">昵称</label>--%>
-<%--                    <div class="col-sm-6 col-md-6">--%>
-<%--                        <input type="text" class="form-control" id="inputNickname" placeholder="高帅富" />--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="inputPassword" class="col-sm-2 col-md-2 control-label">密码</label>--%>
-<%--                    <div class="col-sm-6 col-md-6">--%>
-<%--                        <input type="password" class="form-control" id="inputPassword" placeholder="禁止输入非法字符" />--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="inputPhoneNumber" class="col-sm-2 col-md-2 control-label">手机号码</label>--%>
-<%--                    <div class="col-sm-6 col-md-6">--%>
-<%--                        <input type="text" class="form-control" id="inputPhoneNumber" placeholder="请输入手机号" />--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="man" class="col-sm-2 col-md-2 control-label">性别</label>--%>
-<%--                    <div class="col-sm-6 col-md-6">--%>
-<%--                        <label class="radio-inline">--%>
-<%--                            <input type="radio" id="man" value="option1"> 男--%>
-<%--                        </label>--%>
-<%--                        <label class="radio-inline">--%>
-<%--                            <input type="radio" id="woman" value="option2"> 女--%>
-<%--                        </label>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="birthday" class="col-sm-2 col-md-2 control-label">出生日期</label>--%>
-<%--                    <div class="col-sm-6 col-md-6">--%>
-<%--                        <input type="text" class="form-control" id="birthday" placeholder="请输入出生日期" />--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="postcodes" class="col-sm-2 col-md-2 control-label">邮政编码</label>--%>
-<%--                    <div class="col-sm-6 col-md-6">--%>
-<%--                        <input type="text" class="form-control" id="postcodes" placeholder="请输入邮政编码" />--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="address" class="col-sm-2 col-md-2 control-label">地址</label>--%>
-<%--                    <div class="col-sm-6 col-md-6">--%>
-<%--                        <input type="text" class="form-control" id="address" placeholder="请输入寄送地址" />--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <div class="col-sm-offset-2 col-sm-6">--%>
-<%--                        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="startRegister()">注册</button>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <br/>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-
     <script src="${cp}/signup/vendor/jquery/jquery.min.js"></script>
     <script src="${cp}/signup/js/main.js"></script>
 

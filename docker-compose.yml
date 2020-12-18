@@ -10,7 +10,7 @@ services:
     ]
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: shopping
+      MYSQL_DATABASE: artu
 #    volumes:
 #      - ../../user-relation-mysql/data:/var/lib/mysql
     networks:

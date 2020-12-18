@@ -30,7 +30,7 @@
 			<div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
 				<div class="jumbotron">
 					<h1>Hi, ${sessionScope.currentUser.nickName}</h1>
-					<p>Welcome to your Shopping cart</p>
+					<p>Welcome to your Favorite List</p>
 				</div>
 			</div>
 			<div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
@@ -305,6 +305,7 @@
                 }
             });
         }
+
 	</script>
   </body>
 </html>

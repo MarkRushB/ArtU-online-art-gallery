@@ -11,7 +11,7 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
   
     <!-- 被扫描的包的路径 -->  
-    <context:component-scan base-package="com.shopping" >
+    <context:component-scan base-package="com.artu" >
     	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
     	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
@@ -22,9 +22,17 @@
   	<!-- 开启注解-->
     <mvc:annotation-driven />
 	<mvc:resources location="/static/" mapping="/**"/>
-<!--    <mvc:resources location="/static/js/" mapping="/js/**"/>-->
-<!--    <mvc:resources location="/static/img/" mapping="/img/**"/>-->
-<!--    <mvc:resources location="/static/css/" mapping="/css/**"/>-->
+
+	<!-- Configures Interceptors -->
+	<mvc:interceptors>
+		<!-- This XML will intercept all URIs -->
+		<!--        <bean class="edu.neu.assignment4.part4.interceptor.Xssinterceptor"></bean>-->
+		<!-- This XML will apply interceptor to only configured URIs -->
+		<mvc:interceptor>
+			<mvc:mapping path="/addShoppingEvaluation"></mvc:mapping>
+			<bean class="com.artu.interceptor.Xssinterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
     
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
     
