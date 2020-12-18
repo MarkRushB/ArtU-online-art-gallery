@@ -81,18 +81,18 @@
                 <section class="simple-post">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-4"></div>
-                            <div class="col-md-3">
-                                <h3>Date Created</h3>
-                                <p>${productDetail.counts}</p>
+<%--                            <div class="col-md-4"></div>--%>
+<%--                            <div class="col-md-3">--%>
+<%--                                <h3>Date Created</h3>--%>
+<%--                                <p>${productDetail.counts}</p>--%>
+<%--                                <br>--%>
+<%--                            </div>--%>
+                            <div class="col-md-8 col-md-offset-2" style="margin-left: 44%">
+                                <h3>KeyWord</h3>
+                                <p style="margin-left: -70px">${productDetail.keyWord}</p>
                                 <br>
                             </div>
-                            <div class="col-md-3">
-                                <h3>Media</h3>
-                                <p>${productDetail.keyWord}</p>
-                                <br>
-                            </div>
-                            <div class="col-md-3"></div>
+<%--                            <div class="col-md-3"></div>--%>
                         </div>
                     </div>
                 </section>
