@@ -3,6 +3,8 @@ A website to appreciate art online - INFO 6250 Final Project Report
 |Student Name|NUID|
 |:-:|:-:|
 |Sichen Zhao|001051127|
+
+
 ![](https://markpersonal.oss-us-east-1.aliyuncs.com/pic/20201120175508.png)
 >Morning Sun - Edward Hopper
 
