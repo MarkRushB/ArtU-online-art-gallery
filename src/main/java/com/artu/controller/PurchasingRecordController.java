@@ -19,7 +19,7 @@ import java.util.Map;
 
 
 @Controller
-public class ShoppingRecordController {
+public class PurchasingRecordController {
     @Resource
     private ProductService productService;
     @Resource

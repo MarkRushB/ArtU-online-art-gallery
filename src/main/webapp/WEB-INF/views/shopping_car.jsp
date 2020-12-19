@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
+<c:set var="user" value="${sessionScope.currentUser}"/>
 
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -29,8 +30,15 @@
 		<div class="row">
 			<div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
 				<div class="jumbotron">
-					<h1>Hi, ${sessionScope.currentUser.nickName}</h1>
-					<p>Welcome to your Favorite List</p>
+					<h1>Hi</h1>
+					<c:choose>
+						<c:when test="${currentUser == null}">
+							<p>Please Login</p>
+						</c:when>
+						<c:when test="${currentUser != null}">
+							<p>Welcome to your Favorite List</p>
+						</c:when>
+					</c:choose>
 				</div>
 			</div>
 			<div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
@@ -145,7 +153,8 @@
 		}
 
         function judgeIsLogin() {
-            if("${currentUser.id}" == null || "${currentUser.id}" == undefined || "${currentUser.id}" ==""){
+			console.log("111111111111111111111111111111111111")
+            if("${currentUser.id}" == null || "${currentUser.id}" == undefined || "${currentUser}" ==""){
                 window.location.href = "${cp}/login";
             }
         }

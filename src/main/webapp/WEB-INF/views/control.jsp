@@ -230,7 +230,7 @@
                 '<td>'+allUser[i].nickName+'</td>'+
                 '<td>'+allUser[i].email+'</td>'+
                 '<td>'+
-                '<button class="btn btn-primary btn-sm" type="submit" onclick="deleteUser('+allUser[i].id+')">删除</button>'+
+                '<button class="btn btn-primary btn-sm" type="submit" onclick="deleteUser('+allUser[i].id+')">Remove</button>'+
                 '</td>'+
                 '</tr>'+
                 '</tbody>';
@@ -415,7 +415,7 @@
             dataType : 'text',
             success: function (result){
                 console.log(this.url)
-                result = result.replace(/<pre.*?>/g, '');  //ajaxFileUpload会对服务器响应回来的text内容加上<pre style="....">text</pre>前后缀
+                result = result.replace(/<pre.*?>/g, '');
                 result = result.replace(/<PRE.*?>/g, '');
                 result = result.replace("<PRE>", '');
                 result = result.replace("</PRE>", '');

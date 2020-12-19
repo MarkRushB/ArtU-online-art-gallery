@@ -34,9 +34,9 @@ public class UserController {
         return "register";
     }
 
-    @RequestMapping(value = "/amend_info")
+    @RequestMapping(value = "/modify")
     public String amend_info() {
-        return "amend_info";
+        return "modifyinfo";
     }
 
     @RequestMapping(value = "/login")
@@ -44,10 +44,6 @@ public class UserController {
         return "login";
     }
 
-//    @RequestMapping(value = "/main")
-//    public String main() {
-//        return "main";
-//    }
 
     @RequestMapping(value = "/main")
     public String main1() {
@@ -150,11 +146,9 @@ public class UserController {
     @RequestMapping(value = "/getAllUser", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> getAllUser() {
-//        System.out.println("我接收到了获取用户请求");
         List<User> userList = new ArrayList<>();
         userList = userService.getAllUser();
         String allUsers = JSONArray.toJSONString(userList);
-//        System.out.println("我返回的结果是"+allUsers);
         Map<String,Object> resultMap = new HashMap<String,Object>();
         resultMap.put("allUsers",allUsers);
         return resultMap;
@@ -180,8 +174,9 @@ public class UserController {
 
     @RequestMapping(value = "/doLogout")
     public String doLogout(HttpSession httpSession){
-        httpSession.setAttribute("currentUser","");
+        httpSession.removeAttribute("currentUser");
         return "redirect:login";
+
     }
 
     @RequestMapping(value = "/getUserById", method = RequestMethod.POST)

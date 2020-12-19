@@ -29,8 +29,15 @@
     <div class="row">
         <div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
             <div class="jumbotron">
-                <h1>Hi, ${sessionScope.currentUser.nickName}</h1>
-                <p>Welcome to Your Order Page</p>
+                <h1>Hi</h1>
+                <c:choose>
+                    <c:when test="${currentUser == null}">
+                        <p>Please Login</p>
+                    </c:when>
+                    <c:when test="${currentUser != null}">
+                        <p>Welcome to your Order Page</p>
+                    </c:when>
+                </c:choose>
             </div>
         </div>
         <div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">

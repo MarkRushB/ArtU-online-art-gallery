@@ -23,7 +23,7 @@ import java.util.Map;
 
 
 @Controller
-public class ProductController {
+public class PaintingController {
     @Resource
     private ProductService productService;
 

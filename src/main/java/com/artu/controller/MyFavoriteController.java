@@ -16,7 +16,7 @@ import java.util.Map;
 
 
 @Controller
-public class ShoppingCarController {
+public class MyFavoriteController {
     @Resource
     private ProductService productService;
     @Resource

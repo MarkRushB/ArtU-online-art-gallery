@@ -1,13 +1,74 @@
-1	Nighthawks	Edward Hopper said that “Nighthawks” was inspired by “a restaurant on New York’s Greenwich Avenue where two streets meet,” but the image—with its carefully constructed composition and lack of narrative—has a timeless, universal quality that...	oil on canvas	199	1942	1
-2	The Bedroom	While he was in Arles, Van Gogh made this painting of his bedroom in the Yellow House. He prepared the room himself with simple furniture and with his own work on the wall. The bright colors were meant to express absolute repose or sleep. Research shows ...	oil on canvas	69	1888	4
-3	Starry Night	Turbulence is still one of the unsolved questions in physics, and since science hasn't grasped it perfectly it is thus hard to predict and represent. Turbulence is an apparently chaotic motion flow, you can see it on the water flow over a submarine, you ...	oil on canvas	19999	1889	4
-4	The Swallow's Tail	The Swallow’s Tail completed in the spring in 1983, the last in a series based of paintings based on catastrophe theory, and was Salvador Dali’s last painting. Catastrophe theory, based on the thinkings of Rene Thom, posited that there are seven equi...	oil on canvas	129	1983	3
-5	Haystacks	The year 1890 was a watershed moment in Claude Monet’s life— he had turned fifty and bought property for the first time. It was also the year that Monet painted the most definitive artistic series of the nineteenth century—his Haystacks. This accla...	oil on canvas	3999	1890	2
-6	Night Noon	When we think of Hopper, we think of depictions of a lonely person, staring, doing nothing. High Noon is such a picture: an anonymous woman is seen in the doorway although we have no idea why. Is she waiting for someone? Or simply looking out on the day?...	oil on canvas	799	1949	1
-7	Care Saint-Lazare	At the beginning of 1877, Monet moved near to Gare Saint-Lazare, of which he was subsequently to paint twelve different views. This was the first experiment that the artist made with the technique of serial repetition of a motif, a way of working that wa...	oil on canvas	19999	1877	2
-8	Rembrandt and the Three Heads of Women	This is a simple sketch sheet with single drawings, just as Rembrandt made them. Picasso even drew Rembrandt’s portrait, including the typical beret with feather and his curly hair with just a couple of swift dashes. The master of abstraction made more...	sketch,etching	1999	1934	6
-9	The Feast of Venus	This painting is strongly influenced by humanist thought. It seeks to celebrate the power of love and is inspired by two literary sources. One is from the description of a lost Greek painting that depicted nymphs decorating a statue of Aphrodite, the god...	oil on canvas	199	1636	7
-10	Bridge Over a Pond of Water Lilies	This painting shows one of Monet's most beloved views - the Japanese bridge in his garden in Giverny, France. Throughout his career, Monet depicted series of different landscapes or objects such as poplars, haystacks, or the façade of Rouen Cathedral. S...	oil on canvas	199	1899	2
-11	Impression, Sunrise	The scene painted here was of the harbor at LeHavre, France. It's a typical Monet work; sketched in oil paints on canvas, and executed quickly, to capture the moment’s atmospheric or natural light. It was painted when Monet was on vacation, looking out...	oil on canvas	199	1873	2
-12	The Persistence of Memory	Salvador Dalí frequently described his paintings as “hand painted dream photographs.” He based this seaside landscape on the cliffs in his home region of Catalonia, Spain. The ants and melting clocks are recognizable images that Dalí placed in an u...	oil on canvas	199	1931	3
-13	Large Bathers	The Bathers is the largest in a series of nude bather paintings by Cezanne, and is often referred to as the Large Bathers or Big Bathers to distinguish it from the other bather scenes painted by Cezanne. It is also considered one of the masterpieces of...	oil on canvas	199	1900	5
+# ART SPACE - Online art Gallery
+A website to appreciate art online - INFO 6250 Final Project Report
+|Student Name|NUID|
+|:-:|:-:|
+|Sichen Zhao|001051127|
+![](https://markpersonal.oss-us-east-1.aliyuncs.com/pic/20201120175508.png)
+>Morning Sun - Edward Hopper
+
+## Background
+
+2020 is a very special year, everyone is forced to lock up at home because of the epidemic that is sweeping the world. Just like Edward Hopper's paintings, each of his paintings is like describing a person in quarantine, everyone in his painting looks so lonely.
+
+The painting above was created by him in 1952. In **Morning Sun**, the woman - modeled after Hopper's wife, Jo - faces the sun impassively and seemingly lost in thought. Her visible right eye appears sightless, emphasizing her isolation. The bare wall and the elevation of the room above the street also suggest the bleakness and solitude of impersonal urban life.
+
+Just like us in reality, when the epidemic started, I thought that all emotions related to loneliness came from the sudden termination of various normal social activities. But gradually I discovered that the reason for loneliness is actually because the sense of existence of each individual slowly disappears in quarantine. But Hopper's painting gave me a window to release. His painting made me no longer restricted to my small room, and the world in the painting filled me with curiosity.
+
+So, this is why I want to create a online art gallery website.
+
+## Summary of the Functionality Performed
+
+This project uses `Spring` + `SpringMVC` + `Hibernate` to implement an online art gallery. The main function is to provide a plat for people interested in art to browse famous paintings, Users can see derailed information about different works of seven painters in different periods, share their ideas and inspiration. If users like one of the paintings, they can choose to purchase the art deco painting of this art to support our website maintenance and development. The administrator of the website can process user orders, manage user accounts, and maintain information about paintings.
+
+## Technologies used
+- Spring
+- SpringMVC
+- Hibernate
+- Ajax
+- Interceptor
+- Session Management
+
+## User Roles and performed tasks for each role
+
+**Visitor**
+  - visitors are allowed to register login and modify information
+  - Visitors can browse paintings
+    - Search
+      - Search by title
+      - Search by type
+      - Search by time
+      - Search by artist
+    - Browse all the paintings stored in database in the index page
+  - Click to view detailed information of the painting
+    - Title
+    - date Created
+    - Artist
+    - Type
+    - Description
+  - Add their favorite paintings into My Favorite
+  - Comment on favorite paintings and share inspiration
+  - Purchase function(Purchase decorative paintings corresponding to their favorite artworks)
+  - Check order and confirm received
+
+**Administrator**
+  - **Administrators have the same functions as ordinary users**
+  - Administrators can process the user's order request and control the delivery process
+  - Administrators can view and block the visitors' account
+  - View and deleting artworks in the database
+  - Administrator can instantly update the paintings displayed in the gallery and modify the details
+
+## Screenshots of key screens if available
+### Guide Page
+![](https://markpersonal.oss-us-east-1.aliyuncs.com/pic/screenshot-localhost-8080-ArtU-1608344921768.png)
+### Index Page
+![](https://markpersonal.oss-us-east-1.aliyuncs.com/pic/screenshot-localhost-8080-ArtU-main-1608344968533.png)
+### Login Page
+![](https://markpersonal.oss-us-east-1.aliyuncs.com/pic/screenshot-localhost-8080-ArtU-login-1608345055267.png)
+### Register Page
+![](https://markpersonal.oss-us-east-1.aliyuncs.com/pic/screenshot-localhost-8080-ArtU-register-1608345046639.png)
+### Search Page
+![](https://markpersonal.oss-us-east-1.aliyuncs.com/pic/screenshot-localhost-8080-ArtU-search-1608345027786.png)
+### Painting Detail Page
+![](https://markpersonal.oss-us-east-1.aliyuncs.com/pic/screenshot-localhost-8080-ArtU-product_detail-1608345008431.png)
+### Admin Manage Page
+![](https://markpersonal.oss-us-east-1.aliyuncs.com/pic/screenshot-localhost-8080-ArtU-control-1608345072886.png)

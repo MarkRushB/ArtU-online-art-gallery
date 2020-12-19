@@ -54,10 +54,10 @@
                             <li><a href="${cp}/shopping_car" onclick="fav()">My Favorite</a></li>
                             <li><a href="${cp}/shopping_record" onclick="or()">Orders</a></li>
                             <c:if test="${currentUser.role == 1}">
-                                <li><a href="${cp}/shopping_handle">Processing Order</a></li>
+                                <li><a href="${cp}/shopping_handle" onclick="pro()">Processing Order</a></li>
                             </c:if>
                             <li role="separator" class="divider"></li>
-                            <li><a href="${cp}/amend_info" onclick="mo()">Modify Information</a></li>
+                            <li><a href="${cp}/modify" onclick="mo()">Modify Information</a></li>
                             <li><a href="${cp}/doLogout" onclick="so()">Sign Out</a></li>
                         </ul>
                     </li>
@@ -121,13 +121,16 @@
         window.location.href = "${cp}/shopping_record";
     }
     function mo(){
-        window.location.href = "${cp}/amend_info";
+        window.location.href = "${cp}/modify";
     }
     function so(){
         window.location.href = "${cp}/doLogout";
     }
     function con(){
         window.location.href = "${cp}/control";
+    }
+    function pro(){
+        window.location.href = "${cp}/shopping_handle";
     }
 </script>
 

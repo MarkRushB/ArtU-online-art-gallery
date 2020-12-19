@@ -3,8 +3,6 @@ package com.artu.controller;
 import com.alibaba.fastjson.JSONArray;
 import com.artu.entity.Evaluation;
 import com.artu.service.EvaluationService;
-import com.artu.service.ShoppingRecordService;
-//import org.hibernate.mapping.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,7 +43,7 @@ public class EvaluationController {
         else{
             result = "unsafeComment";
         }
-        System.out.println(result);
+            System.out.println(result);
 
         Map<String,Object> resultMap = new HashMap<String,Object>();
         resultMap.put("result",result);
